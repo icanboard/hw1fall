@@ -10,3 +10,8 @@
 .footer.style {
 	background-color: #87c8ff;
 }
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
