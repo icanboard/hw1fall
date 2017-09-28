@@ -1,0 +1,12 @@
+.navbar-default {
+    background-color: #87c8ff;
+    border-color: #e7e7e7;
+}
+
+.navbar-default .navbar-brand {
+    color: #926448;
+}
+
+.footer.style {
+	background-color: #87c8ff;
+}
