@@ -93,15 +93,9 @@ by a commit message. Lastly, I pushed that onto the server with push command. Le
 	"<nav class="navbar navbar-default" role="navigation">
 		<div class="container">
 			<div class="navbar-header"></div>
-			<a class="navbar-brand" href="fishing.html">
-				Home
-			</a>
-			<a class="navbar-brand" href="species.html">
-				Species
-			</a>
-			<a class="navbar-brand" href="gear.html">
-				Gear
-			</a>
+			<a class="navbar-brand" href="fishing.html">Home</a>
+			<a class="navbar-brand" href="species.html">Species</a>
+			<a class="navbar-brand" href="gear.html">Gear</a>
 		</div>
 	</nav>"
 
