@@ -7,7 +7,7 @@ going for my Applied Baccalaureate of Computer Science. I love solving puzzles a
 enjoy a challenge.
 
 This will be a link to my homeworks: 
-  * [Home Work 1](https://jthatfield15.github.io/cs460/hw1)
+  * [Home Work 1](https://jthatfield15.github.io/cs460/hw1/hw1)
   * [Home Work 2](https://jthatfield15.github.io/cs460/hw2)
 
 ---------------
