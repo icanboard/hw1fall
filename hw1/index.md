@@ -15,16 +15,16 @@ tutorial (it still exists at this moment). I started writing my HTML code for pa
 After it was saved, I staged it using "git add index.html" and then committed it using "git commit -m" followed
 by a commit message. Lastly, I pushed that onto the server with push command. Let's have a look at that code:
 
-```bash
-mkdir cs460
-cd cs460/
-git init
-git add index.html
-git commit -m "initial commit"
-git push origin master
-```
+	```bash
+	mkdir cs460
+	cd cs460/
+	git init
+	git add index.html
+	git commit -m "initial commit"
+	git push origin master
+	```
 
-3. Here is a link to my first HTML site: [https://jthatifled15.github.io/cs460/fishing.html](Fishing.html)
+3. Here is a link to my first HTML site: [Fishing.html](https://jthatifled15.github.io/cs460/fishing.html)
 
 4. Steps 1 through 3 were performed on my laptop. I also needed to clone the repository onto my desktop. After
 performing step 1 above on my desktop, I performed some of the same commands to set up my directoy and initial
@@ -32,17 +32,17 @@ the repository. The change happened after that when I had to set up the remote. 
 the remote site where the repository is located. After setting up my remote with 'git remote' commands, I also 
 had to log into Github and authenticate who I was. This was done via a pop up window and it saved my credentials
 because I don't have to log in to do it any more.
-
 Here is the code I used to clone my repository as step 4 required:
-```bash
-mkdir cs460
-cd cs460/
-git init
-git remote add origin https://github.com/jthatfield15/cs460
-git remote -v
-git pull origin master
-git status
-```
+
+	```bash
+	mkdir cs460
+	cd cs460/
+	git init
+	git remote add origin https://github.com/jthatfield15/cs460
+	git remote -v
+	git pull origin master
+	git status
+	```
 
 5. This was one of the harder steps as it was hard for me to decipher between the Github repository "page" that I 
 created and the Github Pages "page" feature that I was supposed to turn on. I did a little searching on Google and
