@@ -30,48 +30,43 @@ by a commit message. Lastly, I pushed that onto the server with push command. Le
 	The other requirements that I had to follow (followed by code) were:
 	  * Use Bootstrap for the layout of all pages
 	  
-	```html
-	<head>
+	"<head>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" 
 			integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-			</head>
-	```
+	</head>"
 	
 	  * Use single column and multi-column format 
 	
-	```html
-	<div class="container">
-				<div class="row">
-				<div class="col-lg-12">
+	"<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
 				<p class="text-center">A List of Pros and Cons for Fishing</p>
-				</div>
-				</div>
-				<div class="row">
-					<div class="col-lg-6">Pros
-						<ul>
-							<li>Catching your own dinner is rewarding.</li>
-							<li>Fishing is relaxing.</li>
-							<li>You can catch trophy fish and brag about them to your friends.</li>
-						</ul>
-					</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-6">Pros
+				<ul>
+					<li>Catching your own dinner is rewarding.</li>
+					<li>Fishing is relaxing.</li>
+					<li>You can catch trophy fish and brag about them to your friends.</li>
+				</ul>
+			</div>
 
-					<div class="col-lg-6">Cons
-						<ul>
-							<li>It stinks when you don't catch fish.</li>
-							<li>Getting tangles in your line can be stressful.</li>
-							<li>No one knows if you are telling the truth about your stories without proof.</li>
-						</ul>
-					</div>
-				</div>
-	```
+			<div class="col-lg-6">Cons
+				<ul>
+					<li>It stinks when you don't catch fish.</li>
+					<li>Getting tangles in your line can be stressful.</li>
+					<li>No one knows if you are telling the truth about your stories without proof.</li>
+				</ul>
+			</div>
+		</div>
+	</div>"
 	
 	* Use a seperate CSS file
 
-	```html
-	<head>
-	<link rel="stylesheet" href="localStyles.css">
-	</head>
-	```
+	"<head>
+		<link rel="stylesheet" href="localStyles.css">
+	</head>"
 
 	```css
 	.navbar-default {
@@ -95,54 +90,46 @@ by a commit message. Lastly, I pushed that onto the server with push command. Le
 
 	* Use a navigation bar
 
-	```html
-	<nav class="navbar navbar-default" role="navigation">
-	<div class="container">
-	<div class="navbar-header"></div>
-	<a class="navbar-brand" href="fishing.html">
-	Home
-	</a>
-	<a class="navbar-brand" href="species.html">
-	Species
-	</a>
-	<a class="navbar-brand" href="gear.html">
-	Gear
-	</a>
-	</div>
-	</nav>
-	```
+	"<nav class="navbar navbar-default" role="navigation">
+		<div class="container">
+			<div class="navbar-header"></div>
+			<a class="navbar-brand" href="fishing.html">
+				Home
+			</a>
+			<a class="navbar-brand" href="species.html">
+				Species
+			</a>
+			<a class="navbar-brand" href="gear.html">
+				Gear
+			</a>
+		</div>
+	</nav>"
 
 	* Create an ol
 
-	```html
-	<ol>
+	"<ol>
 		<li>snacks</li>
 		<li>bait</li>
 		<li>pole</li>
 		<li>tackle</li>
 		<li>something to sit on</li>
-	</ol>
-	```
+	</ol>"
 
 	* Create an ul
 
-	```html
-	<ul>
+	"<ul>
 		<li>Catching your own dinner is rewarding.</li>
 		<li>Fishing is relaxing.</li>
 		<li>You can catch trophy fish and brag about them to your friends.</li>
-	</ul>
-	```
+	</ul>"
 	
 	  * Create a dl
 	  
-	```html
-	<dl>
-	<dt>Fishing Rod</dt><dd>- Used in conjuction with a fishing reel. It allows you to apply tension to the line.</dd>
-	<dt>Fishing Reel</dt><dd>- Used to keep your line organized. It allows you to cast the line and "reel" it in.</dd>
-	<dt>Fishing Line</dt><dd>- Uses the hook to catch the fish and allows you bring the fish to you.</dd>
-	</dl>
-	```
+	"<dl>
+		<dt>Fishing Rod</dt><dd>- Used in conjuction with a fishing reel. It allows you to apply tension to the line.</dd>
+		<dt>Fishing Reel</dt><dd>- Used to keep your line organized. It allows you to cast the line and "reel" it in.</dd>
+		<dt>Fishing Line</dt><dd>- Uses the hook to catch the fish and allows you bring the fish to you.</dd>
+	</dl>"
 	
 4. Steps 1 through 3 were performed on my laptop. I also needed to clone the repository onto my desktop. After
 performing step 1 above on my desktop, I performed some of the same commands to set up my directoy and initial
