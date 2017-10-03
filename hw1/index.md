@@ -29,13 +29,16 @@ by a commit message. Lastly, I pushed that onto the server with push command. Le
 	Not using a WYSIWYG and maintaining a consist look was one of the main requirements.
 	The other requirements that I had to follow (followed by code) were:
 	  * Use Bootstrap for the layout of all pages
+	  
 	```html
 	<head>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" 
 			integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 			</head>
 	```
+	
 	  * Use single column and multi-column format 
+	
 	```html
 	<div class="container">
 				<div class="row">
@@ -61,12 +64,15 @@ by a commit message. Lastly, I pushed that onto the server with push command. Le
 					</div>
 				</div>
 	```
-	  * Use a seperate CSS file
+	
+	* Use a seperate CSS file
+
 	```html
 	<head>
 	<link rel="stylesheet" href="localStyles.css">
 	</head>
 	```
+
 	```css
 	.navbar-default {
     background-color: #87c8ff;
@@ -86,7 +92,9 @@ by a commit message. Lastly, I pushed that onto the server with push command. Le
 		border-collapse: collapse;
 	}
 	```
-	  * Use a navigation bar
+
+	* Use a navigation bar
+
 	```html
 	<nav class="navbar navbar-default" role="navigation">
 	<div class="container">
@@ -103,7 +111,9 @@ by a commit message. Lastly, I pushed that onto the server with push command. Le
 	</div>
 	</nav>
 	```
-	  * Create an ol
+
+	* Create an ol
+
 	```html
 	<ol>
 		<li>snacks</li>
@@ -113,7 +123,9 @@ by a commit message. Lastly, I pushed that onto the server with push command. Le
 		<li>something to sit on</li>
 	</ol>
 	```
-	  * Create an ul
+
+	* Create an ul
+
 	```html
 	<ul>
 		<li>Catching your own dinner is rewarding.</li>
@@ -121,7 +133,9 @@ by a commit message. Lastly, I pushed that onto the server with push command. Le
 		<li>You can catch trophy fish and brag about them to your friends.</li>
 	</ul>
 	```
+	
 	  * Create a dl
+	  
 	```html
 	<dl>
 	<dt>Fishing Rod</dt><dd>- Used in conjuction with a fishing reel. It allows you to apply tension to the line.</dd>
