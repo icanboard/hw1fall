@@ -1,12 +1,14 @@
-Jake Hatfield
+# Jake Hatfield
 -------------
-CS460 - Fall
+## CS460 - Fall
 
-This is the landing page for my site.
+My name is Jake Hatfield. I am a senior at Western Oregon University and I am 
+going for my Applied Baccalaureate of Computer Science. I love solving puzzles and 
+enjoy a challenge.
 
 This will be a link to my homeworks: 
-  * [HW1](https://jthatfield15.github.io/cs460/hw1.md)
-  * [HW2](https://jthatfield15.github.io/cs460/hw2.md)
+  * [Home Work 1](https://jthatfield15.github.io/cs460/hw1)
+  * [Home Work 2](https://jthatfield15.github.io/cs460/hw2)
 
 ---------------
 [My CS460 Homepage (html)](https://jthatfield15.github.io/cs460/)
