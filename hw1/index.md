@@ -51,12 +51,12 @@ figure out how to navigate it. This took a little longer to figure out since I h
 page. I kept trying to go directly to https://jthatfield15.github.io/ but there is index at that location. I 
 finally figured out that I had to go to the index page at [https://jthatfield15.github.io/cs460](https://jthatfield15.github.io/cs460).
 
-Once I finally got to where I wanted, I created an index.md page was fairly simple, but gave me links to my homework
-to test my links and markdown site. Then I started working on this markdown page that looks better.
+	Once I finally got to where I wanted, I created an index.md page was fairly simple, but gave me links to my homework
+	to test my links and markdown site. Then I started working on this markdown page that looks better.
 
-All the meanwhile, I had to *stage* my files, *commit* them, and *push* them when I wanted to test an implementation or
-switch computers. I also had to make sure the first thing I did was *pull* them from the online repository before I 
-started working on them. This way there were no conflicts on versions and no branches to merge.
+	All the meanwhile, I had to *stage* my files, *commit* them, and *push* them when I wanted to test an implementation or
+	switch computers. I also had to make sure the first thing I did was *pull* them from the online repository before I 
+	started working on them. This way there were no conflicts on versions and no branches to merge.
 
 ---------------
 [My CS460 Homepage (html)](https://jthatfield15.github.io/cs460/)
