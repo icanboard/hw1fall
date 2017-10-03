@@ -8,7 +8,7 @@ enjoy a challenge.
 
 This will be a link to my homeworks: 
   * [Home Work 1](https://jthatfield15.github.io/cs460/hw1/hw1)
-  * [Home Work 2](https://jthatfield15.github.io/cs460/hw2)
+  * [Home Work 2](https://jthatfield15.github.io/cs460/hw2/hw2)
 
 ---------------
 [My CS460 Homepage (html)](https://jthatfield15.github.io/cs460/)
