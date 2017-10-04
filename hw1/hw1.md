@@ -29,8 +29,9 @@ by a commit message. Lastly, I pushed that onto the server with push command. Le
 	Not using a WYSIWYG and maintaining a consist look was one of the main requirements.
 	The other requirements that I had to follow (followed by code) were:
 	  * Use Bootstrap for the layout of all pages
-	  
-	"<head>
+	
+	```html
+	<head>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" 
 			integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 	</head>"
@@ -60,13 +61,16 @@ by a commit message. Lastly, I pushed that onto the server with push command. Le
 				</ul>
 			</div>
 		</div>
-	</div>"
+	</div>
+	```
 	
 	* Use a seperate CSS file
-
-	"<head>
+	
+	```html
+	<head>
 		<link rel="stylesheet" href="localStyles.css">
-	</head>"
+	</head>
+	```
 
 	```css
 	.navbar-default {
@@ -90,40 +94,48 @@ by a commit message. Lastly, I pushed that onto the server with push command. Le
 
 	* Use a navigation bar
 
-	"<nav class="navbar navbar-default" role="navigation">
+	```html
+	<nav class="navbar navbar-default" role="navigation">
 		<div class="container">
 			<div class="navbar-header"></div>
 			<a class="navbar-brand" href="fishing.html">Home</a>
 			<a class="navbar-brand" href="species.html">Species</a>
 			<a class="navbar-brand" href="gear.html">Gear</a>
 		</div>
-	</nav>"
+	</nav>
+	```
 
 	* Create an ol
 
-	"<ol>
+	```html
+	<ol>
 		<li>snacks</li>
 		<li>bait</li>
 		<li>pole</li>
 		<li>tackle</li>
 		<li>something to sit on</li>
-	</ol>"
+	</ol>
+	```
 
 	* Create an ul
 
-	"<ul>
+	```html
+	<ul>
 		<li>Catching your own dinner is rewarding.</li>
 		<li>Fishing is relaxing.</li>
 		<li>You can catch trophy fish and brag about them to your friends.</li>
-	</ul>"
+	</ul>
+	```
 	
 	  * Create a dl
 	  
-	"<dl>
+	```html
+	<dl>
 		<dt>Fishing Rod</dt><dd>- Used in conjuction with a fishing reel. It allows you to apply tension to the line.</dd>
 		<dt>Fishing Reel</dt><dd>- Used to keep your line organized. It allows you to cast the line and "reel" it in.</dd>
 		<dt>Fishing Line</dt><dd>- Uses the hook to catch the fish and allows you bring the fish to you.</dd>
-	</dl>"
+	</dl>
+	```
 	
 4. Steps 1 through 3 were performed on my laptop. I also needed to clone the repository onto my desktop. After
 performing step 1 above on my desktop, I performed some of the same commands to set up my directoy and initial
