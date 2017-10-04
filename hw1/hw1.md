@@ -28,17 +28,20 @@ by a commit message. Lastly, I pushed that onto the server with push command. Le
 	This site was created without the use of a WYSIWYG. I referenced my favorite site when needed: [W3Schools](https://www.w3schools.com/).
 	Not using a WYSIWYG and maintaining a consist look was one of the main requirements.
 	The other requirements that I had to follow (followed by code) were:
-	  * Use Bootstrap for the layout of all pages
+	
+	* Use Bootstrap for the layout of all pages
 	
 	```html
 	<head>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" 
 			integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-	</head>"
+	</head>
+	```
 	
-	  * Use single column and multi-column format 
+	* Use single column and multi-column format 
 	
-	"<div class="container">
+	```html
+	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">
 				<p class="text-center">A List of Pros and Cons for Fishing</p>
