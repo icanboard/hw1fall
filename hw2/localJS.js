@@ -14,7 +14,7 @@ function calculatePrices()
 	
 
 	//validate empty strings
-	if(mpg == '' || ppg == '$' || ppg == '')
+	if(mpg == '' || ppg == '$' || ppg == '' || tripMiles == '')
 	{
 		alert("You must use a valid value for Price per Gallon and Miles per Gallon.");
 		return(1);
@@ -35,15 +35,20 @@ function calculatePrices()
 	//validate mpg is valid
 	if(mpg<5)
 	{
-		console.log(mpg);
 		alert("Your car can't possible have that bad mpg! It has to be 5 or higher.");
 		return(1);
 	}	
 	if(mpg>60)
 	{
-		console.log(mpg);	
 		alert("I want to buy your car. It's mpg is awesome!");
 		return(1);
+	}
+	
+	//validate tripMiles
+	if(tripMiles<0)
+	{
+		alert('Are you driving in reverse? Trip miles needs to be greater than 0.');
+		return(1);		
 	}
 	
 	//start building the table
@@ -94,7 +99,7 @@ function calculatePrices()
 			else
 			{
 				//add td and data. ensure the data is a float with parseFloat and 2 decimals with .toFixed(2)
-				console.log('tripMilesTemp: ' + tripMilesTemp + ' mpgTemp: ' + mpgTemp + ' ppg: ' + ppg);
+				//console.log('tripMilesTemp: ' + tripMilesTemp + ' mpgTemp: ' + mpgTemp + ' ppg: ' + ppg);
 				outputString += '<td>$' + parseFloat(tripMilesTemp/mpgTemp * ppg).toFixed(2) + '</td>';
 				
 				//increment tripMilesTemp
