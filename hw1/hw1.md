@@ -1,5 +1,7 @@
 ### Homework 1
 
+[Fishing for Fun](https://jthatfield15.github.io/cs460/hw1/index.html)
+
 1. The first thing to tackle was to download and install the *command line version* of the Git control system.
 This was pretty simple. I just typed "Git Hub" into Google and I landed at [Github](Github's home page).
 From there, I downloaded the command line version.
@@ -24,7 +26,7 @@ by a commit message. Lastly, I pushed that onto the server with push command. Le
 	git push origin master
 	```
 
-3. Here is a link to my first HTML site: [Fishing.html](https://jthatifled15.github.io/cs460/hw1/index.html)
+3. Here is a link to my first HTML site: [Fishing for Fun](https://jthatfield15.github.io/cs460/hw1/index.html)
 	This site was created without the use of a WYSIWYG. I referenced my favorite site when needed: [W3Schools](https://www.w3schools.com/).
 	Not using a WYSIWYG and maintaining a consist look was one of the main requirements.
 	The other requirements that I had to follow (followed by code) were:
