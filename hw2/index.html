@@ -1,28 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <!-- link rel="stylesheet" href="localStyles.css" -->
-    <script type="text/javascript" src="localJS.js"></script>
-    <title>Home Work 2</title>
-</head>
-<body>
-    <h1>Home Work 2</h1>
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-4">
-                <input type="text" value="$" id="ppg">Price per Gallon
-                <input type="text" id="mpg">Miles per Gallon
-                <input type="text" id="tripMiles">Average Miles (1 way trip)
-                <button style="display:block" onclick="calculatePrices(this.value);">Process</button>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+        <link rel="stylesheet" href="localStyles.css">
+        <script type="text/javascript" src="localJS.js"></script>
+        <title>Home Work 2</title>
+    </head>
+    <body>
+
+        <div class="container">
+            <h1>Cost Per Trip Calculator</h1>
+            <br>
+            <p></p>
+            <br>
+            <div class="row">
+                <div class="col-md-4"><p>Price per Gallon: <input type="text" value="$" id="ppg" style="display:block"></p></div>
+                <div class="col-md-4"><p>Miles per Gallon: <input type="text" id="mpg" style="display:block"></p></div>
+                <div class="col-md-4"><p>Miles Driven: <input type="text" id="tripMiles" style="display:block"></p></div>
             </div>
-            <div class="col-lg-8" id="tableOutput"></div>
+            
+            <div><button style="display:block" onclick="calculatePrices(this.value);" style="display:block">Process</button></div>
+
+            <br>
+
+            <div id="tableOutput" style="display:block"></div>
+
+            <br><br>
+
+            <footer>
+                <p>This will calculate how much it will cost you to drive to your destination given the price per gallon you pay and miles per gallon your vehicle gets. 
+                <br><br>
+                The information you entered is displayed in the top left corner of the table. This table only displays a one way trip so multiply the cost by 2 for a round trip.</p>
+            </footer>
         </div>
-    </div>
-    <p>The information you entered is displayed in the top left corner. This table only displays a one way trip. In order to calculate a round trip, multiply the price by 2.</p>
-</body>
+    </body>
 </html>
-
-

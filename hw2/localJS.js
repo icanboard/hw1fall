@@ -12,52 +12,18 @@ function calculatePrices()
 	ppg = ppg.split('$');
 	ppg = parseFloat(ppg[1]);
 	
-
-	//validate empty strings
-	if(mpg == '' || ppg == '$' || ppg == '' || tripMiles == '')
-	{
-		alert("You must use a valid value for Price per Gallon and Miles per Gallon.");
-		return(1);
-	}
-	
-	//validate ppg is valid
-	if(ppg<=0)
-	{
-		alert("Free gas? Hook me up!");
-		return(1);
-	}
-	if(ppg>'10')
-	{
-		alert("Is that a realistic price for gas? I'm saying no way!");
-		return(1);
-	}
-	
-	//validate mpg is valid
-	if(mpg<5)
-	{
-		alert("Your car can't possible have that bad mpg! It has to be 5 or higher.");
-		return(1);
-	}	
-	if(mpg>60)
-	{
-		alert("I want to buy your car. It's mpg is awesome!");
-		return(1);
-	}
-	
-	//validate tripMiles
-	if(tripMiles<0)
-	{
-		alert('Are you driving in reverse? Trip miles needs to be greater than 0.');
-		return(1);		
-	}
-	
+    if(validateData(mpg, ppg, tripMiles) == 1)
+    {
+        return(1);
+    }
+    
 	//start building the table
-		outputString = '<table>';
+    outputString = '<table>';
 	
 	//build table
 	for(var i=0; i<5; i++)
 	{        
-		//add header and build headers first
+		//add title and build headers first
 		if(i==0)
 		{
 			//k-1 number of headers headers
@@ -66,7 +32,7 @@ function calculatePrices()
 				//add header and build tr before adding th and make an empty th for k=0
 				if(k==0)
 				{
-					outputString += '<h1>Cost Per Trip</h1><tr><th></th>';
+					outputString += '<h2>Cost Per Trip</h2><tr><th></th>';
 				}
 				else
 				{
@@ -122,4 +88,46 @@ function calculatePrices()
 	
 	//insert the new table into the htlm page
 	outputDiv.innerHTML = outputString;
+}
+
+function validateData(mpg, ppg, tripMiles)
+{
+    //validate empty strings
+	if(mpg == '' || ppg == '$' || ppg == '' || tripMiles == '')
+	{
+		alert("You must use a valid value for Price per Gallon and Miles per Gallon.");
+        return(1);
+	}
+	
+	//validate ppg is valid
+	if(ppg<=0)
+	{
+		alert("Free gas? Hook me up!");
+        return(1);
+	}
+	if(ppg>'20')
+	{
+		alert("Is that a realistic price for gas? I hope not!");
+        return(1);
+	}
+	
+	//validate mpg is valid
+	if(mpg<5)
+	{
+		alert("Your car can't possible have that bad mpg! It has to be 5 or higher.");
+        return(1);
+	}	
+	if(mpg>100)
+	{
+		alert("I want to buy your car. It's mpg is awesome!");
+        return(1);
+	}
+	
+	//validate tripMiles
+	if(tripMiles<0)
+	{
+		alert('Are you driving in reverse? Trip miles needs to be greater than 0.');
+        return(1);
+	}
+    return(0);
 }
