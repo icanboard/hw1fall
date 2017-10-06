@@ -9,16 +9,19 @@ function calculatePrices()
 	var outputString = '';
 	var mpgTemp = mpg;
 	var tripMilesTemp = tripMiles;
-	ppg = ppg.split('$');
-	ppg = parseFloat(ppg[1]);
-	
+	if(ppg[0] == '$')
+    {
+        ppg = ppg.split('$');
+        ppg = parseFloat(ppg[1]);
+    }
+    
     if(validateData(mpg, ppg, tripMiles) == 1)
     {
         return(1);
     }
     
 	//start building the table
-    outputString = '<table>';
+    outputString = '<br><table>';
 	
 	//build table
 	for(var i=0; i<5; i++)
@@ -65,7 +68,6 @@ function calculatePrices()
 			else
 			{
 				//add td and data. ensure the data is a float with parseFloat and 2 decimals with .toFixed(2)
-				//console.log('tripMilesTemp: ' + tripMilesTemp + ' mpgTemp: ' + mpgTemp + ' ppg: ' + ppg);
 				outputString += '<td>$' + parseFloat(tripMilesTemp/mpgTemp * ppg).toFixed(2) + '</td>';
 				
 				//increment tripMilesTemp
@@ -90,14 +92,36 @@ function calculatePrices()
 	outputDiv.innerHTML = outputString;
 }
 
+//console test script
+//console.log('tripMilesTemp: ' + tripMilesTemp + ' mpgTemp: ' + mpgTemp + ' ppg: ' + ppg);
+
 function validateData(mpg, ppg, tripMiles)
 {
+    console.log('tripMiles: ' + tripMiles + ' mpg: ' + mpg + ' ppg: ' + ppg);
+    console.log(parseFloat(mpg));
     //validate empty strings
 	if(mpg == '' || ppg == '$' || ppg == '' || tripMiles == '')
 	{
-		alert("You must use a valid value for Price per Gallon and Miles per Gallon.");
+		alert("You must use a valid value for Price per Gallon, Miles per Gallon, and Miles Driven.");
         return(1);
 	}
+    
+    //validate inputs are numbers
+    if(isNaN(parseFloat(ppg)))
+    {
+        alert('Price per Gallon must be a number.')
+        return(1);
+    }
+    if(isNaN(parseFloat(mpg)))
+    {
+        alert('Miles per Gallon must be a number.')
+        return(1);
+    }
+    if(isNaN(parseFloat(tripMiles)))
+    {
+        alert('Miles Driven must be a number.')
+        return(1);
+    }
 	
 	//validate ppg is valid
 	if(ppg<=0)
