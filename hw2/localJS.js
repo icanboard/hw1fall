@@ -56,17 +56,17 @@ function calculatePrices()
 	
 	//build table
 	for(var i=0; i<5; i++)
-	{
-		//build headers first
+	{        
+		//add header and build headers first
 		if(i==0)
 		{
 			//k-1 number of headers headers
 			for(var k=0; k<11; k++)
 			{
-				//build tr before adding th and make an empty th for k=0
+				//add header and build tr before adding th and make an empty th for k=0
 				if(k==0)
 				{
-					outputString += '<tr><th></th>';
+					outputString += '<h1>Cost Per Trip</h1><tr><th></th>';
 				}
 				else
 				{
