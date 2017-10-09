@@ -2,10 +2,10 @@
 //accordingly. Uses mpg, ppg, and tripMiles.
 function calculatePrices()
 {
-	var outputDiv = document.getElementById('tableOutput');
-	var mpg = document.getElementById('mpg').value;
-	var ppg = document.getElementById('ppg').value;
-	var tripMiles = document.getElementById('tripMiles').value;
+	var outputDiv = $('#tableOutput');
+	var mpg = $('#mpg').val();
+	var ppg = $('#ppg').val();
+	var tripMiles = $('#tripMiles').val();
 	var outputString = '';
 	var mpgTemp = mpg;
 	var tripMilesTemp = tripMiles;
@@ -89,7 +89,7 @@ function calculatePrices()
 	outputString += '</table>';
 	
 	//insert the new table into the htlm page
-	outputDiv.innerHTML = outputString;
+	outputDiv.html(outputString);
 }
 
 //console test script
