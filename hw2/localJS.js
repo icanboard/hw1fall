@@ -4,7 +4,7 @@ function calculatePrices()
 {
 	var outputDiv = $('#tableOutput');
 	var mpg = $('#mpg').val();
-	var ppg = $('#ppg').val();
+	var ppg = $('#ppg').val();  
 	var tripMiles = $('#tripMiles').val();
 	var outputString = '';
 	var mpgTemp = mpg;
