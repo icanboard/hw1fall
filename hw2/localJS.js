@@ -155,7 +155,7 @@ function changeColor()
 {
 	var element = $('#changeMe');
 	
-	if(element.class = 'changeable')
+	if(element.class == 'changeable')
 	{
 		element.classList.remove('changeable');
 	}
