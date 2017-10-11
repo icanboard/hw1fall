@@ -13,7 +13,7 @@
     <body>
 
         <div class="container">
-            <h1>Cost Per Trip Calculator</h1>
+            <h1 id="changeMe">Cost Per Trip Calculator</h1>
             <br>
             <div class="row">
                 <div class="col-md-4"><p>Price per Gallon: <input type="text" value="$" id="ppg" style="display:block"></p></div>
@@ -21,7 +21,7 @@
                 <div class="col-md-4"><p>Miles Driven: <input type="text" id="tripMiles" style="display:block"></p></div>
             </div>
             
-            <div><button style="display:block" onclick="calculatePrices(this.value);" style="display:block">Process</button></div>
+            <div><button style="display:block" onclick="calculatePrices(this.value); changeColor();" style="display:block">Process</button></div>
 
 
             <div id="tableOutput" style="display:block"></div>

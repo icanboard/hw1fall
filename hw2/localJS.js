@@ -92,13 +92,8 @@ function calculatePrices()
 	outputDiv.html(outputString);
 }
 
-//console test script
-//console.log('tripMilesTemp: ' + tripMilesTemp + ' mpgTemp: ' + mpgTemp + ' ppg: ' + ppg);
-
 function validateData(mpg, ppg, tripMiles)
 {
-    console.log('tripMiles: ' + tripMiles + ' mpg: ' + mpg + ' ppg: ' + ppg);
-    console.log(parseFloat(mpg));
     //validate empty strings
 	if(mpg == '' || ppg == '$' || ppg == '' || tripMiles == '')
 	{
@@ -154,4 +149,11 @@ function validateData(mpg, ppg, tripMiles)
         return(1);
 	}
     return(0);
+}
+
+function changeColor()
+{
+	var element = $('#changeMe');
+	
+	element.classList.toggle('changeable');
 }
