@@ -150,17 +150,3 @@ function validateData(mpg, ppg, tripMiles)
 	}
     return(0);
 }
-
-function changeColor()
-{
-	var element = $('#changeMe');
-	
-	if(element.class == 'changeable')
-	{
-		element.classList.remove('changeable');
-	}
-	else
-	{
-		element.classList.add('changeable');
-	}
-}
