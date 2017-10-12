@@ -1,6 +1,7 @@
 ### Homework 2
 
 [Homework 2 website](https://jthatfield15.github.io/cs460/hw2/)
+
 [Homework 2 repository](https://jthatfield15.github.io)
 
 This assignment was to create a functioning website that 
@@ -50,7 +51,7 @@ with Javascript.
 	had to use if statements to check if I was supposed to add an opening or
 	closing tag depending on where I was in the code. Here is what I came up with.
 	
-	```Javascript
+	```javascript
 	//start building the table
     outputString = '<br><table>';
 	
