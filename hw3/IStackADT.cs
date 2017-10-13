@@ -19,7 +19,7 @@ public interface IStackADT
 	 * result in an error if the stack is empty. Returns a reference to the 
 	 * item removed.
 	 * @return A reference that was popped (and removed) from the stack or null if
-	 * 			the stack is empty
+	 *   the stack is empty
 	 */
     object Pop();
 
@@ -28,7 +28,7 @@ public interface IStackADT
     * an error if the stack is empty. An acceptable alternative is to return 
     * something which the user can use to check to see if the stack was in fact empty.
     * @return A reference to the item currently on the top of the stack or null if
-    * 			the stack is empty
+    *   the stack is empty
     */
     object Peek();
 

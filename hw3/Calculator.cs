@@ -1,12 +1,5 @@
 // API Imports (USING)
-//using java.util.scanner;
-//using System.IO; //java.io.IOException;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 /**
 * Command line postfix calculator.  This code makes use of java.lang.IllegalArgumentException
@@ -22,7 +15,7 @@ public class Calculator
     /**
 	* Our data structure, used to hold operands for the postfix calculation.
 	*/
-    private IStackADT stack = new LinkedStack();
+    private IStackADT CalcStack = new LinkedStack();
 
     /** Scanner to get input from the user fromt he command line. */
     //private Scanner scin = new Scanner(System.Console.ReadLine);
@@ -36,9 +29,9 @@ public class Calculator
     {
         // Instantiate a "Main" object so we don't have to make everything static.
         Calculator app = new Calculator();
-        Boolean playAgain = true;
+        bool playAgain = true;
         Console.WriteLine("\nPostfix Calculator. Recognizes these operators: + - * /");
-        while(playAgain)
+        while(playAgain) // loop the method until user closes or enters "q"
         {
             playAgain = app.DoCalculation();
         }
@@ -51,31 +44,30 @@ public class Calculator
 	*
 	* @return    true if a calculation succeeded, false if the user wishes to quit
 	*/
-    private Boolean DoCalculation()
+    private bool DoCalculation()
     {
+        Console.WriteLine("Sample input: '2 2 +'\n");
         Console.WriteLine("Please enter q to quit\n");
-        string input = "2 2 +";
+        string input, output = " ";
         Console.Write("> "); // prompt user
 
-        input = Console.ReadLine(); // scin.NextLine();
-        // looks like nextLine() blocks for input when used on an InputStream (System.in). Docs don't say that!
-
+        input = Console.ReadLine(); 
+        
         // See if the user wishes to quit
-        if(input.StartsWith("q") || input.StartsWith("Q"))
+        if(input.Trim().ToLower().StartsWith("q")) // similar to Javascript methods
         {
             return false;
         }
         // Go ahead with calculation
-        String output = "4";
         try
         {
             output = EvaluatePostFixInput(input);
         }
-        catch(System.ArgumentException e)
+        catch(ArgumentException e)
         {
-            output = e.ToString();
+            output = e.Message;
         }
-        Console.WriteLine("\n\t>>> " + input + " = " + output);
+        Console.WriteLine("\n>>> " + input + " = " + output);
         return true;
     }
 
@@ -86,56 +78,56 @@ public class Calculator
 	* @return                               Answer as a String
 	* @exception  IllegalArgumentException  Something went wrong
 	*/
-    public String EvaluatePostFixInput(String input) //throws ArgumentException
+    public string EvaluatePostFixInput(string input) //throws ArgumentException
     {
-        if(input==null || input.Equals(""))
+        if (input == null || input.Equals("")) // invalid input
         {
-            throw new System.ArgumentException("Null or the empty string are not valid postfix expressions");
+            throw new ArgumentException("Null or the empty string are not valid postfix expressions");
         }
         // clear our stack before doing a new calculation
-        stack.Clear();
+        CalcStack.Clear();
 
         //String s; // temporary variable for token read
         double a; // temporary variable for operand
         double b; // temporary variable for operand
         double c; // temporary variable for answer
+        double t; // temporary variable for testing if a string or a double, can be manipulated if its a double
 
-        string s = null; // Console.ReadLine(); //Scanner st = new Scanner(input);
-        //while(st.HasNext())
-        do
+        string[] s = input.Trim().Split(' '); // get input and parse it into seperate strings using a space as a delimiter
+
+        foreach (string temp in s) // test each string in the array of strings
         {
-            st = Console.ReadLine();
-
-            if (Regex.IsMatch(input, @"^\d+$"))
+            if (Double.TryParse(temp, out t)) // test if it is a double, then push it
             {
-                stack.Push((s)); // if it's a number, push it on the stack
+                CalcStack.Push(t);
             }
             else
             {
                 // must be an operator or some other character or word
-                //s = st.Next();
-                if (s.Length > 1)
+                if (temp.Length > 1) // only want operators so it can't be longer than 1
                 {
-                    throw new System.ArgumentException("Input Error: " + s + " is not an allowed number or operator");
+                    throw new ArgumentException("Input Error: " + temp + " is not an allowed number or operator");
                 }
                 // it may be an operator so pop two values off the stack and perform the indicated operation
-                if (stack.IsEmpty())
+                if (CalcStack.IsEmpty()) // check if there is operand to use with the operator
                 {
-                    throw new System.ArgumentException("Improper input format. Stack became empty when expecting second operand");
+                    throw new ArgumentException("Improper input format. Stack became empty when expecting second operand");
                 }
-                b = ((double)(stack.Pop())); //.DoubleValue();
-                if (stack.IsEmpty())
+                b = (double)CalcStack.Pop(); 
+                if (CalcStack.IsEmpty()) // check if there is another operand to use with the operator
                 {
-                    throw new System.ArgumentException("Improper input format. Stack become empty when expecting first operand");
+                    throw new ArgumentException("Improper input format. Stack become empty when expecting first operand");
                 }
-                a = ((double)(stack.Pop())); //.Doublevalue();
+                a = (double)CalcStack.Pop(); 
+                                                    
                 // wrap up all operations in a single method, easy to add other binary operators this way if desired
-                c = DoOperation(a, b, s);
+                c = DoOperation(a, b, temp);
                 // push the answer back on the stack
-                stack.Push((double)(c));
+                CalcStack.Push(c);
             }
-        } while (s != "q\n" || s != "Q\n"); // end while
-        return ((double)(stack.Pop())).ToString();
+        }
+
+        return CalcStack.Pop().ToString();
     }
 
     /**
@@ -147,9 +139,9 @@ public class Calculator
     * @return                               The answer
     * @exception  IllegalArgumentException  Something's fishy here
     */
-    public Double DoOperation(Double a, Double b, String s) //throws IllegalArgumentException
+    public double DoOperation(double a, double b, string s) //throws IllegalArgumentException
     {
-        Double c = 0.0;
+        double c = 0.0; // initialize answer
         if (s.Equals("+")) // can't use a switch-case with Strings, so we do if-else
         {
             c = (a + b);
@@ -167,20 +159,20 @@ public class Calculator
             try
             {
                 c = (a / b);
-                if (c == double.NegativeInfinity || c == double.PositiveInfinity)
+                if (c == Double.NegativeInfinity || c == double.PositiveInfinity)
                 {
-                    throw new System.ArgumentException("Can't divide by zero");
+                    throw new ArgumentException("Can't divide by zero");
                 }
             }
             catch (ArithmeticException e)
             {
-                throw new System.ArgumentException(e.ToString());
+                throw new ArgumentException(e.Message);
             }
         }
         else
         {
-            throw new System.ArgumentException("Improper operator: " + s + ", is not one of +, -, *, or /");
+            throw new ArgumentException("Improper operator: " + s + ", is not one of +, -, *, or /");
         }
-            return c;
+        return c;
     }
 }
