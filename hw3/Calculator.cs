@@ -46,8 +46,7 @@ public class Calculator
 	*/
     private bool DoCalculation()
     {
-        Console.WriteLine("Sample input: '2 2 +'\n");
-        Console.WriteLine("Please enter q to quit\n");
+        Console.WriteLine("Please enter q to quit");
         string input, output = " ";
         Console.Write("> "); // prompt user
 
@@ -67,7 +66,7 @@ public class Calculator
         {
             output = e.Message;
         }
-        Console.WriteLine("\n>>> " + input + " = " + output);
+        Console.WriteLine("\n>>> " + input + " = " + output + "\n");
         return true;
     }
 
