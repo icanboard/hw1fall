@@ -1,5 +1,7 @@
 ### Homework 3
 
+[Jake's CS460 Repository](https://github.com/jthatfield15/cs460/)
+
 This weeks assignment was to translate a Postfix Calculator that was written in Java into C#.
 
 The largest challenge for me was the naming conventions. I rewrote all of the code and did not copy 
@@ -77,3 +79,9 @@ program to load.
 	```
 	
 	No fingers should need to be crossed, all should be merged and synced.
+	
+5. As you can see in the sample image, it accepts doubles and acts appropriately with the inputs.
+If the input is not what is should be or if you do something like divide by zero, you get an 
+appropriate error message.
+
+![Jake's Postfix Calculator in Action](https://jthatfield15.github.io/cs460/hw3/postfix.jpg)

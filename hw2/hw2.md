@@ -2,6 +2,8 @@
 
 [Homework 2 website](https://jthatfield15.github.io/cs460/hw2/)
 
+[Jake's CS460 Repository](https://github.com/jthatfield15/cs460/)
+
 This assignment was to create a functioning website that 
 utilized Javascript and jQuery while still implementing CSS and Bootstrap.
 
