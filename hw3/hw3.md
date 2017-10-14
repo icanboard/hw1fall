@@ -62,7 +62,7 @@ program to load.
 	interface (with the I infront of it per the c# naming conventions). It wall came together nicely in the end
 	and I included the final .exe file in my repository if you are interested in running in.
 	
-	4. I created all this on a new Github branch and merged it into my master. 
+4. I created all this on a new Github branch and merged it into my master. 
 	
 	
 	
