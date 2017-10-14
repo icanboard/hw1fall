@@ -31,7 +31,7 @@ program to load.
 	```c#
 	string[] s = input.Trim().Split(' '); // get input and parse it into seperate strings using a space as a delimiter
 
-        foreach (string temp in s) // test each string in the array of strings
+    foreach (string temp in s) // test each string in the array of strings
     ```
 	
 	After getting the strings, I had to turn them into doubles (or was that Doubles?). I tried many
@@ -42,9 +42,9 @@ program to load.
 	
 	```c#
 	if (Double.TryParse(temp, out t)) // test if it is a double, then push it
-            {
-                CalcStack.Push(t);
-            }
+    {
+		CalcStack.Push(t);
+    }
 	```
 	
 	After dealing with the doubles I interpretted from the input, dealing with the strings, or really the
@@ -52,9 +52,9 @@ program to load.
 	
 	```c#
 	if (temp.Length > 1) // only want operators so it can't be longer than 1
-                {
-                    throw new ArgumentException("Input Error: " + temp + " is not an allowed number or operator");
-                }
+    {
+        throw new ArgumentException("Input Error: " + temp + " is not an allowed number or operator");
+    }
 	```
 	
 	At that point, all I had to do was call the function to do the math operation and I was in business. Of
@@ -64,6 +64,16 @@ program to load.
 	
 4. I created all this on a new Github branch and merged it into my master. 
 	
+	```bash
+	git branch HW3Feature
+	git checkout HW3Feature
+	git add .
+	git commit -m "message"
+	git push origin HW3Feature
+	git checkout master
+	git pull origin master
+	git merge HW3Feature -m "message"
+	git push origin master
+	```
 	
-	
-	
+	No fingers should need to be crossed, all should be merged and synced.
