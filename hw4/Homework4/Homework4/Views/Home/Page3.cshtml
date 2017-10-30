@@ -1,0 +1,110 @@
+﻿
+@{
+    ViewBag.Title = "Page3";
+}
+
+<h2>Page3 - Loan Calculator</h2>
+
+<form method="post">
+    <p>
+        <label for="principal">Principal:</label>
+        @if (ViewBag.principal != null)
+        {
+            <input type="number" name="principal" value=@ViewBag.principal min="0" step="0.01" />
+        }
+        else
+        {
+            <input type="number" name="principal" value="5000" min="0" step="0.01" />
+        }
+    </p>
+    
+    <p>
+        <label for="interest">Interest Rate:</label>
+        @if (ViewBag.interest != null)
+        {
+            <input type="number" name="interest" value="@ViewBag.interest" min="0" step="0.01" />
+        }
+        else
+        {
+            <input type="number" name="interest" value="4.5" min="0" step="0.01" />
+        }
+    </p>
+
+    <p>
+        <label for="numberOfPayments">Number of Monthly Payments:</label>
+        @if (ViewBag.numberOfPayments != null)
+        {
+            <input type="number" name="numberOfPayments" value="@ViewBag.numberOfPayments" min="1" step="1" />
+        }
+        else
+        {
+            <input type="number" name="numberOfPayments" value="60" min="1" step="1" />
+        }
+    </p>
+
+    <p>
+        <label for="paymentPeriodDivision">Payment Period Type:</label>
+        @if (ViewBag.paymentPeriodDivision != null)
+        {
+            switch ((int)@ViewBag.paymentPeriodDivision)
+            {
+                case 365:
+                    <select name="paymentPeriodDivision" type="number">
+                        <option value="365" selected>Day(s)</option>
+                        <option value="52">Week(s)</option>
+                        <option value="12">Months(s)</option>
+                        <option value="1">Year(s)</option>
+                    </select>
+                    break;
+                case 52:
+                    <select name="paymentPeriodDivision" type="number">
+                        <option value="365">Day(s)</option>
+                        <option value="52" selected>Week(s)</option>
+                        <option value="12">Months(s)</option>
+                        <option value="1">Year(s)</option>
+                    </select>
+                    break;
+                case 12:
+                    <select name="paymentPeriodDivision" type="number">
+                        <option value="365">Day(s)</option>
+                        <option value="52">Week(s)</option>
+                        <option value="12" selected>Months(s)</option>
+                        <option value="1">Year(s)</option>
+                    </select>
+                    break;
+                case 1:
+                    <select name="paymentPeriodDivision" type="number">
+                        <option value="365">Day(s)</option>
+                        <option value="52">Week(s)</option>
+                        <option value="12">Months(s)</option>
+                        <option value="1" selected>Year(s)</option>
+                    </select>
+                    break;
+            }
+        }
+        else
+        {
+            <select name="paymentPeriodDivision" type="number">
+                <option value="365">Day(s)</option>
+                <option value="52">Week(s)</option>
+                <option value="12" selected>Months(s)</option>
+                <option value="1">Year(s)</option>
+            </select>
+        }
+    </p>
+
+    <input type="submit" name="submit" value="Submit" />
+</form>
+
+@if (ViewBag.totalRepayment != null)
+{
+    <br />
+    <h2>Your monthly payment will be @ViewBag.monthlyPayment.ToString("c2") per month.</h2>
+    <h2>You will be paying @ViewBag.numberOfPayments.ToString("c2") per month.</h2>
+    <h2>You will pay a total of @ViewBag.totalRepayment.ToString("c2").</h2>
+    <h2>That equates to @ViewBag.interestPaid.ToString("c2") in total interest paid on the loan.</h2>
+    <br />
+    <p>This was added using HTTP GET and HTTP REQUEST in conjunction with model binding.</p>
+}
+
+
