@@ -70,7 +70,8 @@ namespace Homework4.Controllers
 
             return View();
         }
-        
+
+        // GET ~/Home/Page2
         [HttpGet]
         public ActionResult Page2()
         {
@@ -79,6 +80,7 @@ namespace Homework4.Controllers
             return View();
         }
 
+        // POST ~/Home/Page2
         [HttpPost]
         public ActionResult Page2(FormCollection data)
         {
@@ -121,6 +123,7 @@ namespace Homework4.Controllers
             return View();
         }
 
+        // GET ~/Home/Page3
         [HttpGet]
         public ActionResult Page3()
         {
@@ -128,6 +131,7 @@ namespace Homework4.Controllers
             return View();
         }
 
+        // POST ~/Home/Page3
         [HttpPost]
         public ActionResult Page3(float? principal, float? interest, int? numberOfPayments, float? totalRepayment)
         {
@@ -157,6 +161,12 @@ namespace Homework4.Controllers
             return View();
         }
 
+        // calculates the monthly payment with a given the principal, interest, and number of payments
+        // params are floats, but calculations are done and returned as doubles for better accuracy
+        // param float principal
+        // param float interest
+        // param int numberOfPayments
+        // return double monthlyPayment
         public double getMonthlyPayments(float principal, float interest, int numberOfPayments)
         {
             // M = P * ( J / (1 - (1 + J) ^-N ) )
@@ -166,30 +176,36 @@ namespace Homework4.Controllers
             // N = total number of payments
             // As found at https://www.wikihow.com/Calculate-Loan-Payments
 
-            //1 get interest rate 5000 
+            // Another run through, using test data and in codable form
+            //0 get interest 4.5 principal 5000 numberOfPayments 60
             //1 percent/100. .045
-            //2 divide interest rate by 12 .00375
+            //2 divide interest rate by 12. .00375
             //3 multiply that by principal 18.75 = temp
             //4 add 1 to (step 2) 1.00375
             //5 step 4 ^ #months included in loan 1.00375^60= 1.25179
             //6 1/step5 1/1.25179  .7988
             //7 1-step6 .2012 temp2
-            //8 step3/step7 93.19 
-            // gives monthly payment
-
+            //8 step3/step7 = monthly payment = 93.19 
             // as seen on https://www.youtube.com/watch?v=x77rCEKU29Y
 
+            // Steps 1 through 3
             double temp = ((interest / 100) / 12) * principal;
 
+            // Steps 4 through 7
             double temp2 = 1 - (1 / (Math.Pow((((interest / 100) / 12)  + 1), (double)numberOfPayments)));
 
+            // Step 8
             double monthlyPayment = temp / temp2;
 
-            Debug.WriteLine($"{temp}:{temp2}:{monthlyPayment}");
+            //Debug.WriteLine($"{temp}:{temp2}:{monthlyPayment}");
 
             return monthlyPayment;
         }
 
+        // gets the total repayment of the loan, principle and interest
+        // param double monthlyPayment
+        // param double numberOfPayments
+        // return double totalRepayments
         public double getTotalRepayment(double monthlyPayment, double numberOfPayments)
         {
             double totalRepayment = monthlyPayment * numberOfPayments;
@@ -197,18 +213,15 @@ namespace Homework4.Controllers
             return totalRepayment;
         }
 
+        // gets the total interest paid on the loan
+        // param double totalRepayment
+        // param double principal
+        // return double interestPaid
         public double getInterestPaid(double totalRepayment, double principal)
         {
             double interestPaid = totalRepayment - principal;
 
             return interestPaid;
-        }
-
-        [HttpGet]
-        public ActionResult FormExample3()
-        {
-            ViewBag.RequestMethod = "GET";
-            return View();
         }
         
         public string SwapDegreeType(string degreeType)
