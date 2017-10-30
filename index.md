@@ -1,6 +1,4 @@
-# Jake Hatfield
--------------
-## CS460 - Fall
+# CS460 - Fall
 
 My name is Jake Hatfield. I am a senior at Western Oregon University and I am 
 going for my Applied Baccalaureate of Computer Science. I love solving puzzles and 
