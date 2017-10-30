@@ -11,7 +11,7 @@
         <label for="degree">Degrees:</label>
         <input type="text" name="degree" value="" />
     </p>
-    <p>
+    <p><!-- select box allows me to control input -->
         <label for="degreeType">Degree Type</label>
         <select name="degreeType" type="text">
             <option value="F">F</option>
@@ -21,6 +21,7 @@
     <input type="submit" name="submit" value="Submit" />
 </form>
 
+<!-- output can only be displayed after newDegreeString is set via POST method -->
 @if (ViewBag.newDegreeString != null)
  {
     <br />

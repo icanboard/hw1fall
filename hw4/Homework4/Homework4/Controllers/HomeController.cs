@@ -41,7 +41,7 @@ namespace Homework4.Controllers
                 degree = '0'.ToString();
             }
 
-            Debug.WriteLine($"{degree}{degreeType}");
+            //Debug.WriteLine($"{degree}{degreeType}");
 
             // Calculates the new temperate for C or F
             if (string.Equals(degreeType, "C"))
@@ -90,7 +90,7 @@ namespace Homework4.Controllers
             string degree = data["degree"];
             string degreeType = data["degreeType"];
 
-            Debug.WriteLine($"{degree}{degreeType}");
+            //Debug.WriteLine($"{degree}{degreeType}");
 
             // If degree was not entered, makes it 0
             if (degree == null || string.Equals(degree, ""))
@@ -114,7 +114,7 @@ namespace Homework4.Controllers
             // convert the degree type
             string newDegreeType = SwapDegreeType(degreeType);
 
-            Debug.WriteLine($"{degree}{degreeType}");
+            //Debug.WriteLine($"{degree}{degreeType}");
 
             // create new string
             newDegreeString = string.Concat("The converted temperature is ", newDegree, newDegreeType);
@@ -160,7 +160,57 @@ namespace Homework4.Controllers
 
             return View();
         }
+        
+        // Changes the degree type for display purposes.
+        // param string degreeType
+        // return string (swapped degree type)
+        public string SwapDegreeType(string degreeType)
+        {
+            // swap C to F
+            if (string.Equals(degreeType, "C"))
+            {
+                return "F";
+            }
+            // swap F to C
+            else if (string.Equals(degreeType, "F"))
+            {
+                return "C";
+            }
+            // unknown input, return error
+            else
+            {
+                return "error";
+            }
+        }
 
+        // Converts Celsius to Fahrenheit
+        // param string degree
+        // return string (degrees in Fahrenheit)
+        public string CToF(string degree)
+        {
+            // Parses string to float, then calculates the new degree = ((temp-32)*(5/9))
+            float temp = float.Parse(degree);
+            temp = temp - 32;
+            temp = temp * ((float)5 / (float)9);
+
+            // Convert Float to String
+            return temp.ToString();
+        }
+
+        // Converts Fahrenheit to Celsius
+        // param string degree
+        // return string (degrees in Celsius)
+        public string FToC(string degree)
+        {
+            // Parses string to float, then calculates the new degree = (temp*(9/5)+32)
+            float temp = float.Parse(degree);
+            temp = temp * ((float)9 / (float)5);
+            temp = temp + 32;
+
+            // Convert Float to String
+            return temp.ToString();
+        }
+        
         // calculates the monthly payment with a given the principal, interest, and number of payments
         // params are floats, but calculations are done and returned as doubles for better accuracy
         // param float principal
@@ -192,7 +242,7 @@ namespace Homework4.Controllers
             double temp = ((interest / 100) / 12) * principal;
 
             // Steps 4 through 7
-            double temp2 = 1 - (1 / (Math.Pow((((interest / 100) / 12)  + 1), (double)numberOfPayments)));
+            double temp2 = 1 - (1 / (Math.Pow((((interest / 100) / 12) + 1), (double)numberOfPayments)));
 
             // Step 8
             double monthlyPayment = temp / temp2;
@@ -222,42 +272,6 @@ namespace Homework4.Controllers
             double interestPaid = totalRepayment - principal;
 
             return interestPaid;
-        }
-        
-        public string SwapDegreeType(string degreeType)
-        {
-            if (string.Equals(degreeType, "C"))
-            {
-                return "F";
-            }
-            else if (string.Equals(degreeType, "F"))
-            {
-                return "C";
-            }
-            else
-            {
-                return "error";
-            }
-        }
-
-        public string CToF(string degree)
-        {
-            // Parses string to float, then calculates the new degree = ((temp-32)*(5/9))
-            float temp = float.Parse(degree);
-            temp = temp - 32;
-            temp = temp * ((float)5 / (float)9);
-            // Convert Float to String
-            return temp.ToString();
-        }
-
-        public string FToC(string degree)
-        {
-            // Parses string to float, then calculates the new degree = (temp*(9/5)+32)
-            float temp = float.Parse(degree);
-            temp = temp * ((float)9 / (float)5);
-            temp = temp + 32;
-            // Convert Float to String
-            return temp.ToString();
         }
     }
 }

@@ -8,6 +8,7 @@
 <form method="post">
     <p>
         <label for="principal">Principal:</label>
+        <!-- allow for null input, then set it to a defualt value, this covers error checking -->
         @if (ViewBag.principal != null)
         {
             <input type="number" name="principal" value=@ViewBag.principal min="0" step="0.01" />
@@ -20,6 +21,7 @@
     
     <p>
         <label for="interest">Interest Rate:</label>
+        <!-- allow for null input, then set it to a defualt value, this covers error checking -->
         @if (ViewBag.interest != null)
         {
             <input type="number" name="interest" value="@ViewBag.interest" min="0" step="0.01" />
@@ -32,6 +34,7 @@
 
     <p>
         <label for="numberOfPayments">Number of Monthly Payments:</label>
+        <!-- allow for null input, then set it to a defualt value, this covers error checking -->
         @if (ViewBag.numberOfPayments != null)
         {
             <input type="number" name="numberOfPayments" value="@ViewBag.numberOfPayments" min="1" step="1" />
@@ -45,11 +48,12 @@
     <input type="submit" name="submit" value="Submit" />
 </form>
 
+<!-- output can only be displayed after totalRepayment is set via POST method -->
 @if (ViewBag.totalRepayment != null || string.Equals(ViewBag.totalRepayment, ""))
 {
     <br />
-    <h2>Your monthly payment will be @ViewBag.monthlyPayment.ToString("c2") per month.</h2>
-    <h2>You will be paying @ViewBag.numberOfPayments.ToString("c2") per month.</h2>
+    <h2>Your monthly payment will be @ViewBag.monthlyPayment.ToString("c2") per month.</h2> // .ToString("c2") formats the string as currency
+    <h2>You will be making @ViewBag.numberOfPayments.ToString("") monthly payment(s).</h2>
     <h2>You will pay a total of @ViewBag.totalRepayment.ToString("c2").</h2>
     <h2>That equates to @ViewBag.interestPaid.ToString("c2") in total interest paid on the loan.</h2>
     <br />
