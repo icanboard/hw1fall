@@ -28,7 +28,7 @@ namespace Homework4.Controllers
             string degree = Request["degree"];
             string degreeType = Request["degreeType"];
 
-            Debug.WriteLine($"{degree}{degreeType}");
+            //Debug.WriteLine($"{degree}{degreeType}");
 
             // Initialize variables
             string newDegree = null;
