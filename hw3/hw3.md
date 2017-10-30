@@ -1,6 +1,7 @@
 ### Homework 3
 
 [Jake's CS460 Repository](https://github.com/jthatfield15/cs460/)
+
 [Jake's GitHub.io Homepage](https://jthatfield15.github.io/cs460/)
 
 This weeks assignment was to translate a Postfix Calculator that was written in Java into C#.

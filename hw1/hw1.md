@@ -3,6 +3,7 @@
 [Fishing for Fun](https://jthatfield15.github.io/cs460/hw1/index.html)
 
 [Jake's CS460 Repository](https://github.com/jthatfield15/cs460/)
+
 [Jake's GitHub.io Homepage](https://jthatfield15.github.io/cs460/)
 
 1. The first thing to tackle was to download and install the *command line version* of the Git control system.
