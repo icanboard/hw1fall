@@ -45,7 +45,7 @@
     <input type="submit" name="submit" value="Submit" />
 </form>
 
-@if (ViewBag.totalRepayment != null)
+@if (ViewBag.totalRepayment != null || string.Equals(ViewBag.totalRepayment, ""))
 {
     <br />
     <h2>Your monthly payment will be @ViewBag.monthlyPayment.ToString("c2") per month.</h2>

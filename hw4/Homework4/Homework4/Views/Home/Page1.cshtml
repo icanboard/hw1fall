@@ -3,21 +3,29 @@
     ViewBag.Title = "Page1";
 }
 
-<h2>Page1</h2>
+<h2>Page 1</h2>
 
 
 <form method="put">
-    <label for="degree">Degrees:</label>
-    <input type="text" name="degree" value="" />
-    <label for="degreeType">Degree Type</label>
-    <select name="degreeType" type="text">
-        <option value="F">F</option>
-        <option value="C">C</option>
-    </select>
+    <p>
+        <label for="degree">Degrees:</label>
+        <input type="text" name="degree" value="" />
+    </p>
+    <p>
+        <label for="degreeType">Degree Type</label>
+        <select name="degreeType" type="text">
+            <option value="F">F</option>
+            <option value="C">C</option>
+        </select>
+    </p>
     <input type="submit" name="submit" value="Submit" />
 </form>
 
 @if (ViewBag.newDegreeString != null)
  {
-    <br /><h2>@ViewBag.newDegreeString</h2>
- }
+    <br />
+    <h2>@ViewBag.newDegreeString</h2>
+
+    <br />
+    <p>This was added using HTTP GET in conjuction with REQUEST object.</p>
+}

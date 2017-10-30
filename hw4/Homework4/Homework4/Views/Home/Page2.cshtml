@@ -3,23 +3,27 @@
     ViewBag.Title = "Page2";
 }
 
-<h2>Page2</h2>
+<h2>Page 2</h2>
 
 <form method="post">
-    <label for="degree">Degrees:</label>
-    <input type="text" name="degree" value="" />
-    <label for="degreeType">Degree Type</label>
-    <select name="degreeType" type="text">
-        <option value="F">F</option>
-        <option value="C">C</option>
-    </select>
+    <p>
+        <label for="degree">Degrees:</label>
+        <input type="text" name="degree" value="" />
+    </p>
+    <p>
+        <label for="degreeType">Degree Type</label>
+        <select name="degreeType" type="text">
+            <option value="F">F</option>
+            <option value="C">C</option>
+        </select>
+    </p>
     <input type="submit" name="submit" value="Submit" />
 </form>
 
 @if (ViewBag.newDegreeString != null)
 {
     <br />
-    <p>This was added using HTTP GET and HTTP REQUEST in conjuction with FormCollection.</p>
-    
     <h2>@ViewBag.newDegreeString</h2>
+    <br />
+    <p>This was added using HTTP GET and HTTP POST in conjuction with FormCollection.</p>
 }

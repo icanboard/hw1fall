@@ -28,23 +28,33 @@ namespace Homework4.Controllers
             string degree = Request["degree"];
             string degreeType = Request["degreeType"];
 
+            Debug.WriteLine($"{degree}{degreeType}");
+
             // Initialize variables
             string newDegree = null;
             string newDegreeType = null;
             string newDegreeString = null;
 
+            // If degree was not entered, makes it 0
+            if (degree == null || string.Equals(degree, ""))
+            {
+                degree = '0'.ToString();
+            }
+
+            Debug.WriteLine($"{degree}{degreeType}");
+
             // Calculates the new temperate for C or F
             if (string.Equals(degreeType, "C"))
             {
                 // Swaps the degreetype from C to F
-                SwapDegreeType(degreeType);
+                newDegreeType = SwapDegreeType(degreeType);
                 // Gets the converted temperature
                 newDegree = FToC(degree);
             }
             else if (string.Equals(degreeType, "F"))
             {
                 // Swaps the degreetype from F to C
-                SwapDegreeType(degreeType); 
+                newDegreeType = SwapDegreeType(degreeType); 
                 // Gets the converted temperature
                 newDegree = CToF(degree);
             }
@@ -55,6 +65,8 @@ namespace Homework4.Controllers
                 newDegreeString = string.Concat("The converted temperature is ", newDegree, newDegreeType);
                 ViewBag.newDegreeString = newDegreeString;
             }
+
+            Debug.WriteLine($"{degree}{degreeType}");
 
             return View();
         }
@@ -78,6 +90,12 @@ namespace Homework4.Controllers
 
             Debug.WriteLine($"{degree}{degreeType}");
 
+            // If degree was not entered, makes it 0
+            if (degree == null || string.Equals(degree, ""))
+            {
+                degree = '0'.ToString();
+            }
+
             // Initialize variables
             string newDegree = null;
             string newDegreeString = null;
@@ -85,14 +103,16 @@ namespace Homework4.Controllers
             //convert the degree 
             if (string.Equals(degreeType, "C"))
             {
-                newDegree = CToF(degree);
+                newDegree = FToC(degree);
             }
             else if (string.Equals(degreeType, "F"))
             {
-                newDegree = FToC(degree);
+                newDegree = CToF(degree);
             }
             // convert the degree type
             string newDegreeType = SwapDegreeType(degreeType);
+
+            Debug.WriteLine($"{degree}{degreeType}");
 
             // create new string
             newDegreeString = string.Concat("The converted temperature is ", newDegree, newDegreeType);
@@ -109,17 +129,30 @@ namespace Homework4.Controllers
         }
 
         [HttpPost]
-        public ActionResult Page3(float principal, float interest, int numberOfPayments, int paymentPeriodDivision, float? totalRepayment)
+        public ActionResult Page3(float? principal, float? interest, int? numberOfPayments, float? totalRepayment)
         {
             ViewBag.RequestMethod = "POST";
             ViewBag.principal = principal;
             ViewBag.interest = interest;
             ViewBag.numberOfPayments = numberOfPayments;
-            ViewBag.paymentPeriodDivision = paymentPeriodDivision;
+
+            if (principal == null || string.Equals(principal, ""))
+            {
+                principal = 5000;
+            }
+            if (interest == null || float.Equals(interest, ""))
+            {
+                interest = (float)4.5;
+            }
+            if (numberOfPayments == null || string.Equals(numberOfPayments, ""))
+            {
+                numberOfPayments = 60;
+                ViewBag.numberOfPayments = 60;
+            }
             
-            ViewBag.monthlyPayment = (float)getMonthlyPayments(principal, interest, numberOfPayments);
-            ViewBag.totalRepayment = (float)getTotalRepayment(ViewBag.monthlyPayment, numberOfPayments);
-            ViewBag.interestPaid = (float)getInterestPaid(ViewBag.totalRepayment, principal);
+            ViewBag.monthlyPayment = (float)getMonthlyPayments((float)principal, (float)interest, (int)numberOfPayments);
+            ViewBag.totalRepayment = (float)getTotalRepayment(ViewBag.monthlyPayment, (int)numberOfPayments);
+            ViewBag.interestPaid = (float)getInterestPaid(ViewBag.totalRepayment, (float)principal);
 
             return View();
         }
