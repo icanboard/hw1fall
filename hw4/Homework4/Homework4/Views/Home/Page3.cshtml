@@ -42,57 +42,6 @@
         }
     </p>
 
-    <p>
-        <label for="paymentPeriodDivision">Payment Period Type:</label>
-        @if (ViewBag.paymentPeriodDivision != null)
-        {
-            switch ((int)@ViewBag.paymentPeriodDivision)
-            {
-                case 365:
-                    <select name="paymentPeriodDivision" type="number">
-                        <option value="365" selected>Day(s)</option>
-                        <option value="52">Week(s)</option>
-                        <option value="12">Months(s)</option>
-                        <option value="1">Year(s)</option>
-                    </select>
-                    break;
-                case 52:
-                    <select name="paymentPeriodDivision" type="number">
-                        <option value="365">Day(s)</option>
-                        <option value="52" selected>Week(s)</option>
-                        <option value="12">Months(s)</option>
-                        <option value="1">Year(s)</option>
-                    </select>
-                    break;
-                case 12:
-                    <select name="paymentPeriodDivision" type="number">
-                        <option value="365">Day(s)</option>
-                        <option value="52">Week(s)</option>
-                        <option value="12" selected>Months(s)</option>
-                        <option value="1">Year(s)</option>
-                    </select>
-                    break;
-                case 1:
-                    <select name="paymentPeriodDivision" type="number">
-                        <option value="365">Day(s)</option>
-                        <option value="52">Week(s)</option>
-                        <option value="12">Months(s)</option>
-                        <option value="1" selected>Year(s)</option>
-                    </select>
-                    break;
-            }
-        }
-        else
-        {
-            <select name="paymentPeriodDivision" type="number">
-                <option value="365">Day(s)</option>
-                <option value="52">Week(s)</option>
-                <option value="12" selected>Months(s)</option>
-                <option value="1">Year(s)</option>
-            </select>
-        }
-    </p>
-
     <input type="submit" name="submit" value="Submit" />
 </form>
 
