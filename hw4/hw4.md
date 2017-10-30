@@ -36,25 +36,25 @@ passed from client to server and the language differnce affected what the types 
 	The calculation is made on the server side: it merely converts the degree the user provided to the opposite degree type.
 	The first page was done using the REQUEST object. 
 	
-	![REQUEST in action]](https://jthatfield15.github.io/cs460/hw4/4-1.JPG)
+	![REQUEST in action](https://jthatfield15.github.io/cs460/hw4/4-1.JPG)
 	
-	![Form Input]](https://jthatfield15.github.io/cs460/hw4/4-2.JPG)
+	![Form Input](https://jthatfield15.github.io/cs460/hw4/4-2.JPG)
 	
-	![Form Output]](https://jthatfield15.github.io/cs460/hw4/4-3.JPG)
+	![Form Output](https://jthatfield15.github.io/cs460/hw4/4-3.JPG)
 	
 5. Creating page 2 was easier after creating page 1. It was more or less the same using FormCollection. This was similar
 	to the javascript that I have scripted before but this was much easier because the server was already aware of the 
 	form object. The first difference here is that there is a different page for the GET request and POST request. 
 	The GET request is a simple display of the view with not data.
 	
-	![Get Method]](https://jthatfield15.github.io/cs460/hw4/5-1.JPG)
+	![Get Method](https://jthatfield15.github.io/cs460/hw4/5-1.JPG)
 	
 	The second difference is that there is a parameter in the POST method. The parameter is a FormCollection object. 
 	This collects the data that is passed by the POST in a FormCollection object and then you can call those almost like
 	they are attributes. After accessing the data, the rest is the same. I used the same methods I wrote for page 1 to 
 	convert the temperature.
 	
-	![POST and FormCollection]](https://jthatfield15.github.io/cs460/hw4/5-2.JPG)
+	![POST and FormCollection](https://jthatfield15.github.io/cs460/hw4/5-2.JPG)
 	
 6. This was the tough one. Page 3 is supposed to use model binding. After watching this done in class, I had confused
 	model binding with the model aspect of MVC so I started down the path of creating a model. I didn't realize when I
@@ -62,7 +62,7 @@ passed from client to server and the language differnce affected what the types 
 	by this time). Model binding is easy after you understand the requirements. First, start with a normal GET request to
 	display the form to allow you to get the information. 
 
-	![Get Method]](https://jthatfield15.github.io/cs460/hw4/6-1.JPG)
+	![Get Method](https://jthatfield15.github.io/cs460/hw4/6-1.JPG)
 	
 	Create a view with a form, just like the other pages, but this one required a bit more validation to ensure the 
 	form wouldn't crash or break when invalid data was input. We were supposed to create a loan calculator with three 
@@ -71,7 +71,7 @@ passed from client to server and the language differnce affected what the types 
 	POST request with missing data, the functions would break. Passing null is fine after you set the paramaters as 
 	nullable by adding a ? to the end of the data type. 
 	
-	![Parameterization]](https://jthatfield15.github.io/cs460/hw4/6-2.JPG)
+	![Parameterization](https://jthatfield15.github.io/cs460/hw4/6-2.JPG)
 	
 	I decided to make all of mine nullable so I could handle the nulls on the server side. The only one that had to be
 	nullable for this to work was the totalRepayment since it was created on the serverside and wasn't something the 
@@ -87,7 +87,7 @@ passed from client to server and the language differnce affected what the types 
 	
 	Ultimately, I came out with a decent product that does exactly what it is intended to.
 	
-	![Calculator after POST]](https://jthatfield15.github.io/cs460/hw4/6-3.JPG)
+	![Calculator after POST](https://jthatfield15.github.io/cs460/hw4/6-3.JPG)
 	
 	
 	
