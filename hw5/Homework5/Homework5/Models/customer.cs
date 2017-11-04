@@ -8,13 +8,15 @@ namespace Homework5.Models
 {
     public class Customer
     {
+        [Key]
         public int CID { get; set; }
 
         [Required]
         public string ODL { get; set; }
         
-        [Required]
-        public DateTime DOB { get; set; }
+        [Required, StringLength(10)]
+        [Display(Name ="Date of Birth")]
+        public string DOB { get; set; }
 
         [Required, StringLength(64)]
         [Display(Name = "Full Name")]
@@ -40,6 +42,8 @@ namespace Homework5.Models
         [Display(Name = "County")]
         public string CountyAdd { get; set; }
         
-        public DateTime DateSigned { get; set; }
+        [StringLength(10)]
+        [Display(Name = "Date Signed")]
+        public string DateSigned { get; set; }
     }
 }
