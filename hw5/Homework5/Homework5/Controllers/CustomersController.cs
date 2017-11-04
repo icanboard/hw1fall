@@ -32,17 +32,32 @@ namespace Homework5.Controllers
 
         // POST: CreateCustomer
         [HttpPost]
-        public ActionResult CreateCustomer(int ODL)
-        {
+        public ActionResult CreateCustomer([Bind(Include = "ODL,FullName,DOB,StreetAdd,CityAdd,StateAdd,ZipAdd,CountyAdd,DateSigned")] Customer customer)
+        {   //(int ODL, string FullName, string DOB, string StreetAdd, string CityAdd, string StateAdd, string ZipAdd, string CountyAdd, string DateSigned)
             ViewBag.RequestMethod = "POST";
-            ViewBag.ODL = ODL;
-            
-            return RedirectToAction("SubmissionSuccessful"); //Redirect to SubmissionSuccessful
+
+            if (ModelState.IsValid)
+            {
+                db.Customers.Add(customer);
+                db.SaveChanges();
+                return RedirectToAction("SubmissionSuccessful"); //Redirect to SubmissionSuccessful
+            }
+            else
+            {
+                return RedirectToAction("SubmissionFailed"); //Redirect to SubmissionFailed
+            }
         }
 
         // GET: SubmissionSuccessful
         [HttpGet]
         public ActionResult SubmissionSuccessful()
+        {
+            return View();
+        }
+
+        // GET: SubmissionFailed
+        [HttpGet]
+        public ActionResult SubmissionFailed()
         {
             return View();
         }

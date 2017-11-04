@@ -6,42 +6,42 @@
 <h2>Create a New Customer</h2>
 
 <div>
-    <form method="post">
+    <form name="myForm" id="myForm" method="post">
         <p>
-            <label for="ODL">ODL / PERMIT / ID / CUSTOMER #:</label><!--Input ODL-->
-            <input type="text" name="ODL" />
+            <label for="ODL">ODL / PERMIT / ID / CUSTOMER #:</label>
+            <input type="number" name="ODL" maxlength="8" min="1" />
         </p>
         <p>
-            <label for="FullName">Full Name(First Last):</label><!--Input Full Name-->
-            <input type="text" name="FullName" />
+            <label for="FullName">Full Name(First Last):</label>
+            <input type="text" name="FullName" maxlength="64" />
         </p>
         <p>
-            <label for="DOB">Date of Birth(MM/DD/YYYY):</label><!--Input DOB-->
-            <input type="date" name="DOB" />
+            <label for="DOB">Date of Birth(YYYY-MM-DD):</label>
+            <input type="text" name="DOB" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" title="Date of Birth" />
         </p>
         <p>
-            <label for="StreetAdd">Street Address:</label><!--Input Street-->
-            <input type="text" name="StreetAdd" />
+            <label for="StreetAdd">Street Address:</label>
+            <input type="text" name="StreetAdd" maxlength="64" />
         </p>
         <p>
-            <label for="CityAdd">City:</label><!--Input City-->
-            <input type="text" name="CityAdd" />
+            <label for="CityAdd">City:</label>
+            <input type="text" name="CityAdd" maxlength="24" />
         </p>
         <p>
-            <label for="StateAdd">State:</label><!--Input State-->
-            <input type="text" name="State" />
+            <label for="StateAdd">State:</label>
+            <input type="text" name="StateAdd" maxlength="3" />
         </p>
         <p>
-            <label for="ZipAdd">Zip:</label><!--Input Zip-->
-            <input type="text" name="ZipAdd" />
+            <label for="ZipAdd">Zip:</label>
+            <input type="number" name="ZipAdd" maxlength="5" min="0" max="99999" />
         </p>
         <p>
-            <label for="CountyAdd">County:</label><!--Input County-->
-            <input type="text" name="CountyAdd" />
+            <label for="CountyAdd">County:</label>
+            <input type="number" name="CountyAdd" min="1" max="90" />
         </p>
         <p>
-            <label for="DateSigned">Date:</label><!--Input Sign Date-->
-            <input type="text" name="FullName" />
+            <label for="DateSigned">Date(YYYY-MM-DD):</label>
+            <input type="text" name="DateSigned" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}" title="Date Signed" />
         </p>
         <p>
             <input type="submit" name="submit" value="Submit" />

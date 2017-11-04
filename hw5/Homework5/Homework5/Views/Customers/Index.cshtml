@@ -8,64 +8,28 @@
 
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.CID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FullName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DOB)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.StreetAdd)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CityAdd)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.StateAdd)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ZipAdd)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CountyAdd)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.DateSigned)
-        </th>
+        <th>@Html.DisplayNameFor(model => model.CID)</th>
+        <th>@Html.DisplayNameFor(model => model.FullName)</th>
+        <th>@Html.DisplayNameFor(model => model.DOB)</th>
+        <th>@Html.DisplayNameFor(model => model.StreetAdd)</th>
+        <th>@Html.DisplayNameFor(model => model.CityAdd)</th>
+        <th>@Html.DisplayNameFor(model => model.StateAdd)</th>
+        <th>@Html.DisplayNameFor(model => model.ZipAdd)</th>
+        <th>@Html.DisplayNameFor(model => model.CountyAdd)</th>
+        <th>@Html.DisplayNameFor(model => model.DateSigned)</th>
     </tr>
 
     @foreach (var customer in Model) {
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => customer.CID)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => customer.FullName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => customer.DOB)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => customer.StreetAdd)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => customer.CityAdd)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => customer.StateAdd)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => customer.ZipAdd)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => customer.CountyAdd)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => customer.DateSigned)
-            </td>
+            <td>@Html.DisplayFor(modelItem => customer.CID)</td>
+            <td>@Html.DisplayFor(modelItem => customer.FullName)</td>
+            <td>@Html.DisplayFor(modelItem => customer.DOB)</td>
+            <td>@Html.DisplayFor(modelItem => customer.StreetAdd)</td>
+            <td>@Html.DisplayFor(modelItem => customer.CityAdd)</td>
+            <td>@Html.DisplayFor(modelItem => customer.StateAdd)</td>
+            <td>@Html.DisplayFor(modelItem => customer.ZipAdd)</td>
+            <td>@Html.DisplayFor(modelItem => customer.CountyAdd)</td>
+            <td>@Html.DisplayFor(modelItem => customer.DateSigned)</td>
         </tr>
     }
 </table>

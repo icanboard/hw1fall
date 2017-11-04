@@ -42,7 +42,7 @@ namespace Homework5.Models
         [Display(Name = "County")]
         public string CountyAdd { get; set; }
         
-        [StringLength(10)]
+        [Required, StringLength(10)]
         [Display(Name = "Date Signed")]
         public string DateSigned { get; set; }
     }
