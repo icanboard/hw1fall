@@ -65,18 +65,23 @@ it is still possible to submit the form with null values. This doesn't break the
 
 9. Here is a demonstration (I compressed the window size to allow it to fit on a smaller screen):
 
+Home Page - Displays all customers in the CUSTOMERS table.
 ![Home Page - Displays all customers in the CUSTOMERS table.](https://jthatfield15.github.io/cs460/hw5/9-1.JPG)
 
+CreateCustomer Page - Blank Form ready for entry.
 ![CreateCustomer Page - Blank Form ready for entry.](https://jthatfield15.github.io/cs460/hw5/9-2.JPG)
 
+Populated Form - Form is populated and ready to submit.
 ![Populated Form - Form is populated and ready to submit.](https://jthatfield15.github.io/cs460/hw5/9-3.JPG)
 
+Submission Successful - Page displayed after a successful submission.
 ![Submission Successful - Page displayed after a successful submission.](https://jthatfield15.github.io/cs460/hw5/9-4.JPG)
 
+Entry Added - The entry was added to the database and displayed correctly.
 ![Entry Added - The entry was added to the database and displayed correctly.](https://jthatfield15.github.io/cs460/hw5/9-5.JPG)
 
+Populated Form With One Field Missing - Missing a field because I am trying to break the form.
 ![Populated Form With One Field Missing - Missing a field because I am trying to break the form.](https://jthatfield15.github.io/cs460/hw5/4-6.JPG)
 
+Submission Failed - Page displayed after a failed submission.
 ![Submission Failed - Page displayed after a failed submission.](https://jthatfield15.github.io/cs460/hw5/4-7.JPG)
-
-
