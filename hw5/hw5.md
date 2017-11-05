@@ -81,7 +81,7 @@ Entry Added - The entry was added to the database and displayed correctly.
 ![Entry Added - The entry was added to the database and displayed correctly.](https://jthatfield15.github.io/cs460/hw5/9-5.JPG)
 
 Populated Form With One Field Missing - Missing a field because I am trying to break the form.
-![Populated Form With One Field Missing - Missing a field because I am trying to break the form.](https://jthatfield15.github.io/cs460/hw5/4-6.JPG)
+![Populated Form With One Field Missing - Missing a field because I am trying to break the form.](https://jthatfield15.github.io/cs460/hw5/9-6.JPG)
 
 Submission Failed - Page displayed after a failed submission.
-![Submission Failed - Page displayed after a failed submission.](https://jthatfield15.github.io/cs460/hw5/4-7.JPG)
+![Submission Failed - Page displayed after a failed submission.](https://jthatfield15.github.io/cs460/hw5/9-7.JPG)
