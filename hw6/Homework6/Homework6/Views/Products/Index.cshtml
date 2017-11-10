@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Homework6.Models.ProductCategory>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Product Categories</h2>
+
+<div class="row col-md-12">
+        @foreach (var item in Model.ToList())
+            //iterate over the product categories and create links
+        {
+            ViewBag.CategoryName = item.Name;
+
+            @Html.ActionLink(item.Name, "Index/" + item.ProductCategoryID)
+            <br />
+            //<button type="button" onclick="@RedirectResult("Index/" + item.Name)">@ViewBag.CategoryName</button>
+        }
+</div>
+<br />
+<div class="row col-md-12">
+    @if (ViewBag.catID != null)
+    // this will be null on initial load
+    {
+        // displays Subcategory name
+        <h2>@Model.Where(p => p.ProductCategoryID == ViewBag.catID).FirstOrDefault().Name</h2>
+
+        //iterate over subcategories if the category match the ID
+        foreach (var item in Model.Where(p => p.ProductCategoryID == ViewBag.catID).Select(p => p.ProductSubcategories).ToList().FirstOrDefault())
+        {
+            @Html.ActionLink(item.Name, "Products/" + item.ProductSubcategoryID)
+            <br />
+        }
+    }
+</div>

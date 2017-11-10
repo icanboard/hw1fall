@@ -11,10 +11,20 @@ namespace Homework6.Controllers
     {
         private AdventureWorksContext db = new AdventureWorksContext(); // brings in dbcontext
         
-        // GET: Products
-        public ActionResult Index()
+        // GET: ~/Products/
+        // GET: ~/Products/Index
+        public ActionResult Index(int? id)
         {
-            return View();
+            var categories = db.ProductCategories;
+
+            if (id != null && db.ProductCategories.Find(id) != null)
+            {
+                ViewBag.catID = id;
+            }
+
+            return View(categories);
         }
+
+        
     }
 }
