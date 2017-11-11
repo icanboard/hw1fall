@@ -7,12 +7,12 @@
 
 <div class="row col-md-12">
         @foreach (var item in Model.ToList())
-            //iterate over the product categories and create links
+        //iterate over the product categories and create links
         {
             ViewBag.CategoryName = item.Name;
 
-            @Html.ActionLink(item.Name, "Index/" + item.ProductCategoryID)
-            <br />
+            <h4>@Html.ActionLink(item.Name, "Index/" + item.ProductCategoryID)</h4>
+            
             //<button type="button" onclick="@RedirectResult("Index/" + item.Name)">@ViewBag.CategoryName</button>
         }
 </div>
@@ -27,8 +27,7 @@
         //iterate over subcategories if the category match the ID
         foreach (var item in Model.Where(p => p.ProductCategoryID == ViewBag.catID).Select(p => p.ProductSubcategories).ToList().FirstOrDefault())
         {
-            @Html.ActionLink(item.Name, "Products/" + item.ProductSubcategoryID)
-            <br />
+            <h4>@Html.ActionLink(item.Name, "Products/" + item.ProductSubcategoryID)</h4>
         }
     }
 </div>

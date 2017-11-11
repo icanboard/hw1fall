@@ -1,0 +1,17 @@
+﻿@model IEnumerable<Homework6.Models.Product>
+
+@{
+    ViewBag.Title = "Products";
+}
+
+
+<h2>Products From @Html.DisplayFor(item => item.FirstOrDefault().ProductSubcategory.Name)</h2>
+
+<div class="row col-md-12">
+    @foreach (var item in Model) // iterate over all products
+    {
+        <div class="col-md-4"><h4>@Html.ActionLink(item.Name, "Product/" + @Html.DisplayFor(modelItem => item.ProductID))</h4></div>
+        <div class="col-md-2"><h4>: $@Html.DisplayFor(modelItem => item.ListPrice)</h4></div>
+    }
+</div>
+
