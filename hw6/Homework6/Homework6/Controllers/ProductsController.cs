@@ -55,8 +55,34 @@ namespace Homework6.Controllers
             }
 
             var product = db.Products.Find(id);
-
+            
             return View(product);
+        }
+
+        // POST: ~/Products/Product
+        // this request comes after submitting the add review form
+        [HttpPost]
+        public ActionResult Product(int id, string name, string email, int rating, string comments)
+        {
+            // create a new ProductReview object
+            ProductReview review = db.ProductReviews.Create();
+            
+            // add all the attributes of a Product Review to add it to the db
+            review.Comments = comments;
+            review.EmailAddress = email;
+            review.ModifiedDate = DateTime.Now; // correct date/time format
+            review.ProductID = id;
+            review.Rating = rating;
+            review.ReviewDate= DateTime.Now;
+            review.ReviewerName = name;
+
+            if (ModelState.IsValid)
+            {
+                db.ProductReviews.Add(review);
+                db.SaveChanges();
+            }
+            
+            return View(id);
         }
     }
 }

@@ -1,18 +1,90 @@
 ﻿@model Homework6.Models.Product 
-@{//pass in single object not IEnumerable
+@{//pass in single object not IEnumerable, that was passed in from the controller
     ViewBag.Title = "Product";
+
+    ViewBag.pID = Html.DisplayFor(p => p.ProductID);
+    ViewBag.pName = @Html.DisplayFor(p => p.Name);
+    ViewBag.pClass = @Html.DisplayFor(p => p.Class);
+    ViewBag.pColor = @Html.DisplayFor(p => p.Color);
+    ViewBag.pListPrice = @Html.DisplayFor(p => p.ListPrice);
+    ViewBag.pProductLine = @Html.DisplayFor(p => p.ProductLine);
+    ViewBag.pProductNumber = @Html.DisplayFor(p => p.ProductNumber);
+    ViewBag.pSize = @Html.DisplayFor(p => p.Size) + " " + @Html.DisplayFor(p => p.SizeUnitMeasureCode);
+    ViewBag.pStyle = @Html.DisplayFor(p => p.Style);
+    ViewBag.pWeight = @Html.DisplayFor(p => p.Weight) + " " + @Html.DisplayFor(p => p.WeightUnitMeasureCode);
+    
 }
 
-<h2>@Html.DisplayFor(p => p.Name)</h2>
+<h2>@ViewBag.pName</h2>
 
-<h4>Class: @Html.DisplayFor(p => p.Class)</h4>
-<h4>Color: @Html.DisplayFor(p => p.Color)</h4>
-<h4>List Price: $@Html.DisplayFor(p => p.ListPrice)</h4>
-<h4>Product Line: @Html.DisplayFor(p => p.ProductLine)</h4>
-<h4>Product Number: @Html.DisplayFor(p => p.ProductNumber)</h4>
-<h4>Size: @Html.DisplayFor(p => p.Size) @Html.DisplayFor(p => p.SizeUnitMeasureCode)</h4>
-<h4></h4>
-<h4>Style: @Html.DisplayFor(p => p.Style)</h4>
-<h4>Weight: @Html.DisplayFor(p => p.Weight) @Html.DisplayFor(p => p.WeightUnitMeasureCode)</h4>
-<h4></h4>
+<h4>Class: @ViewBag.pClass</h4>
+<h4>Color: @ViewBag.pColor</h4>
+<h4>List Price: $@ViewBag.pListPrice</h4>
+<h4>Product Line: @ViewBag.pProductLine</h4>
+<h4>Product Number: @ViewBag.pProductNumber</h4>
+<h4>Size: @ViewBag.pSize</h4>
+<h4>Style: @ViewBag.pStyle</h4>
+<h4>Weight: @ViewBag.pWeight</h4>
 
+<button onclick="toggleElementVisibilty('reviewsDiv');">See Reviews</button>
+
+<button onclick="toggleElementVisibilty('reviewFormDiv');">Add a Review</button>
+
+<div id="reviewsDiv" style="display:none">
+    <br />
+    @foreach (var item in Model.ProductReviews)  //@foreach (var item in Model) // iterate over all products
+    {
+        <p>@Html.DisplayFor(modelItem => item.ReviewerName) (@Html.DisplayFor(modelItem => item.EmailAddress)) 
+            gave a review rating of @Html.DisplayFor(modelItem => item.Rating) on @Html.DisplayFor(modelItem => item.ReviewDate).
+        <br />
+        They left the following comments: 
+        <br />
+        @Html.DisplayFor(modelItem => item.Comments)
+        </p>    
+    }
+</div>
+
+<div id="reviewFormDiv" style="display:none">
+    <br />
+<form name="myForm" id="myForm" method="post">
+    <input name="id" type="number" value="@ViewBag.pId" style="display:none"/>
+    <p>
+        <label for="name">Name:</label>
+        <input type="text" name="name" />
+    </p>
+    <p>
+        <label for="email">Email:</label>
+        <input type="text" name="email" />
+    </p>
+    <p>
+        <label for="rating">Rating (1 to 5 scale):</label>
+        <input type="number" name="rating" min="1" max="5" />
+    </p>
+    <p>
+        <label for="comments">Comments:</label>
+        <textarea name="comments" form="myForm"></textarea>
+    </p>
+    <button type="submit">Submit Review</button>
+</form>    
+</div>
+
+<script>
+    function showReviewForm()
+    {
+        document.getElementById("reviewFormDiv").style = "display:block";
+    }
+
+    function toggleElementVisibilty(elementId)
+    {
+        var element = document.getElementById(elementId);
+        
+        if (element.style.display == "none")
+        {
+            element.style.display = "block";
+        }
+        else
+        {
+            element.style.display = "none";
+        }
+    }
+</script>
