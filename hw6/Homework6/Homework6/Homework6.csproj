@@ -112,6 +112,8 @@
     <Content Include="Web.config" />
     <Content Include="Views\Products\Products.cshtml" />
     <Content Include="Views\Products\Product.cshtml" />
+    <Content Include="Views\Products\Success.cshtml" />
+    <Content Include="Views\Products\Failure.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />

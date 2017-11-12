@@ -12,7 +12,11 @@
     ViewBag.pSize = @Html.DisplayFor(p => p.Size) + " " + @Html.DisplayFor(p => p.SizeUnitMeasureCode);
     ViewBag.pStyle = @Html.DisplayFor(p => p.Style);
     ViewBag.pWeight = @Html.DisplayFor(p => p.Weight) + " " + @Html.DisplayFor(p => p.WeightUnitMeasureCode);
-    
+}
+
+@{ // https://stackoverflow.com/questions/22475513/how-can-i-render-an-html-image-from-byte-data
+    var base64 = Convert.ToBase64String(ViewBag.pPhoto);
+    var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
 }
 
 <h2>@ViewBag.pName</h2>
@@ -25,36 +29,26 @@
 <h4>Size: @ViewBag.pSize</h4>
 <h4>Style: @ViewBag.pStyle</h4>
 <h4>Weight: @ViewBag.pWeight</h4>
+<h4><img src="@imgSrc"; /></h4>
 
-<button onclick="toggleElementVisibilty('reviewsDiv');">See Reviews</button>
+<button onclick="toggleElementVisibilty('reviewsDiv'); checkForReviews();">See Reviews</button>
 
 <button onclick="toggleElementVisibilty('reviewFormDiv');">Add a Review</button>
-
+<br /><br />
 <div id="reviewsDiv" style="display:none">
-    <br />
-    @foreach (var item in Model.ProductReviews)  //@foreach (var item in Model) // iterate over all products
-    {
-        <p>@Html.DisplayFor(modelItem => item.ReviewerName) (@Html.DisplayFor(modelItem => item.EmailAddress)) 
-            gave a review rating of @Html.DisplayFor(modelItem => item.Rating) on @Html.DisplayFor(modelItem => item.ReviewDate).
-        <br />
-        They left the following comments: 
-        <br />
-        @Html.DisplayFor(modelItem => item.Comments)
-        </p>    
-    }
 </div>
 
 <div id="reviewFormDiv" style="display:none">
     <br />
 <form name="myForm" id="myForm" method="post">
-    <input name="id" type="number" value="@ViewBag.pId" style="display:none"/>
+    <input name="id" type="number" value="@ViewBag.pId" style="display:none" />
     <p>
         <label for="name">Name:</label>
-        <input type="text" name="name" />
+        <input type="text" name="name" maxlength="50" />
     </p>
     <p>
         <label for="email">Email:</label>
-        <input type="text" name="email" />
+        <input type="text" name="email" maxlength="50" />
     </p>
     <p>
         <label for="rating">Rating (1 to 5 scale):</label>
@@ -62,9 +56,9 @@
     </p>
     <p>
         <label for="comments">Comments:</label>
-        <textarea name="comments" form="myForm"></textarea>
+        <textarea name="comments" form="myForm" maxlength="3850"></textarea>
     </p>
-    <button type="submit">Submit Review</button>
+    <button type="submit" >Submit Review</button>
 </form>    
 </div>
 
@@ -74,10 +68,21 @@
         document.getElementById("reviewFormDiv").style = "display:block";
     }
 
+    function checkForReviews()
+    {
+        var element = document.getElementById("reviewsDiv");
+
+        element.innerHTML = "@foreach (var item in Model.ProductReviews) {<p>@Html.DisplayFor(modelItem => item.ReviewerName) (@Html.DisplayFor(modelItem => item.EmailAddress)) gave a review rating of @Html.DisplayFor(modelItem => item.Rating) on @Html.DisplayFor(modelItem => item.ReviewDate). <br /> They left the following comments: <br /> @Html.DisplayFor(modelItem => item.Comments) </p>}";
+        if (element.innerHTML == "")
+        {
+            element.innerHTML = "<h3>There are no reviews to display</h3>";
+        }
+    }
+    
     function toggleElementVisibilty(elementId)
     {
         var element = document.getElementById(elementId);
-        
+
         if (element.style.display == "none")
         {
             element.style.display = "block";

@@ -55,24 +55,36 @@ namespace Homework6.Controllers
             }
 
             var product = db.Products.Find(id);
+
+            var photo = (from item in db.ProductPhotoes
+                         where item.ProductProductPhotoes.Any(p => p.ProductID == id)
+                         select item.LargePhoto).FirstOrDefault();
             
+            ViewBag.pPhoto = photo;
+
             return View(product);
         }
-
+        
+        
         // POST: ~/Products/Product
         // this request comes after submitting the add review form
         [HttpPost]
-        public ActionResult Product(int id, string name, string email, int rating, string comments)
+        public ActionResult Product(int? id, string name, string email, int? rating, string comments)
         {
             // create a new ProductReview object
             ProductReview review = db.ProductReviews.Create();
             
+            if(id == null || id.Equals("") || name == null || name.Equals("") || email == null || email.Equals("") || rating == null || rating.Equals("") || comments == null || comments.Equals(""))
+            {
+                return RedirectToAction("Failure");
+            }
+
             // add all the attributes of a Product Review to add it to the db
             review.Comments = comments;
             review.EmailAddress = email;
             review.ModifiedDate = DateTime.Now; // correct date/time format
-            review.ProductID = id;
-            review.Rating = rating;
+            review.ProductID = (int)id;
+            review.Rating = (int)rating;
             review.ReviewDate= DateTime.Now;
             review.ReviewerName = name;
 
@@ -80,9 +92,19 @@ namespace Homework6.Controllers
             {
                 db.ProductReviews.Add(review);
                 db.SaveChanges();
+                return RedirectToAction("Success");
             }
-            
-            return View(id);
+
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult Failure()
+        {
+            return View();
+        }
+        public ActionResult Success()
+        {
+            return View();
         }
     }
 }
