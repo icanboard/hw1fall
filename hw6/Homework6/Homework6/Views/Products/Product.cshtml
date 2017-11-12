@@ -36,6 +36,8 @@
 <button onclick="toggleElementVisibilty('reviewFormDiv');">Add a Review</button>
 <br /><br />
 <div id="reviewsDiv" style="display:none">
+    @foreach (var item in Model.ProductReviews)
+    {<p>@Html.DisplayFor(modelItem => item.ReviewerName) (@Html.DisplayFor(modelItem => item.EmailAddress)) gave a review rating of @Html.DisplayFor(modelItem => item.Rating) on @Html.DisplayFor(modelItem => item.ReviewDate). <br /> They left the following comments: <br /> @Html.DisplayFor(modelItem => item.Comments) </p>}
 </div>
 
 <div id="reviewFormDiv" style="display:none">
@@ -71,9 +73,8 @@
     function checkForReviews()
     {
         var element = document.getElementById("reviewsDiv");
-
-        element.innerHTML = "@foreach (var item in Model.ProductReviews) {<p>@Html.DisplayFor(modelItem => item.ReviewerName) (@Html.DisplayFor(modelItem => item.EmailAddress)) gave a review rating of @Html.DisplayFor(modelItem => item.Rating) on @Html.DisplayFor(modelItem => item.ReviewDate). <br /> They left the following comments: <br /> @Html.DisplayFor(modelItem => item.Comments) </p>}";
-        if (element.innerHTML == "")
+        
+        if (element.innerHTML.trim() == "")
         {
             element.innerHTML = "<h3>There are no reviews to display</h3>";
         }
