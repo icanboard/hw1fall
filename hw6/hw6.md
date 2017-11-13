@@ -92,7 +92,7 @@ don't want to break things or refactor the methods.
     }
 	```
 	
-	![Showing all subcategories](https://github.com/jthatfield15/cs460/hw6/6-1.JPG)
+	![Showing all subcategories](https://jthatfield15.github.io/cs460/hw6/6-1.JPG)
 	
 7. Now that I have the ProductSubcategoryID, I need to get the products. I created a new view, Products, to display all of
 products in that subcategory. This time, I passed Products to the view so I could iterate over them. I created a list of
@@ -116,7 +116,7 @@ the products on the controller using this Linq command:
 	}
 	```
 	
-	![Showing all products in a chosen subcategory](https://github.com/jthatfield15/cs460/hw6/7-1.JPG)
+	![Showing all products in a chosen subcategory](https://jthatfield15.github.io/cs460/hw6/7-1.JPG)
 
 8. The link from the Products page sent a GET request to the Product page. So that was what I created next. Again, I used
 the 'id' field appended at the end of the URL. I querried Products to find the product I wanted and returned that to the
@@ -192,7 +192,7 @@ passed it to the view. The code looks simple, but it took me a while to figure i
 	<h4><img src="@imgSrc"; /></h4>
 	```
 	
-	![Displaying a single Product](https://github.com/jthatfield15/cs460/hw6/10-1.JPG)
+	![Displaying a single Product](https://jthatfield15.github.io/cs460/hw6/10-1.JPG)
 	
 11. Looking ahead, I wanted to add a search feature on the Index page to jump straight to a product to write the review. This
 was fairly simple because all I had to do was get an input and create a link with it. Once I appended the id to the Product field, 
@@ -238,7 +238,7 @@ in the table weren't nullable. I addressed this by creating DateTime stamps to p
     <button type="submit">Submit Review</button>
 	</form>    
 	```
-	![Review Form](https://github.com/jthatfield15/cs460/hw6/13-1.JPG)
+	![Review Form](https://jthatfield15.github.io/cs460/hw6/13-1.JPG)
 	
 	After creating the form, I wanted to add a way to show and hide the form. I have done this in the past so I just added
 	a little javascript to take care of the sytle:display and that was taken care of.
@@ -263,9 +263,9 @@ in the table weren't nullable. I addressed this by creating DateTime stamps to p
 	variables and creates a new ProductReview object and insert it into the database. It then saves the database. If it is
 	successful, it returns the user to a simple Success page. If it is not successful, it redirects the user to a Failure page.
 	
-	![Success](https://github.com/jthatfield15/cs460/hw6/13-2.JPG)
+	![Success](https://jthatfield15.github.io/cs460/hw6/13-2.JPG)
 	
-	![Failure](https://github.com/jthatfield15/cs460/hw6/13-3.JPG)
+	![Failure](https://jthatfield15.github.io/cs460/hw6/13-3.JPG)
 	
 14. Since I did the inserts first, I had to go back and work on displaying the data. I thought it would be easiest to just show
 it, but wanted to hide it incase you wanted to use the form. So I implemented the same code to show/hide the review data. I 
@@ -273,8 +273,8 @@ then had to implement a way to insert the review data into the page. I did this 
 Then I did a check to see if the reviewsDiv was empty. If it was was, I could display a custome message to let the user know there 
 are no reviews for that item.
 
-	![No Reviews to Display](https://github.com/jthatfield15/cs460/hw6/14-1.JPG)
+	![No Reviews to Display](https://jthatfield15.github.io/cs460/hw6/14-1.JPG)
 	
 	Then I had to check that my data was being displayed. Here is the review I added in the previous step. 
 	
-	![Review Displayed](https://github.com/jthatfield15/cs460/hw6/14-2.JPG)
+	![Review Displayed](https://jthatfield15.github.io/cs460/hw6/14-2.JPG)
