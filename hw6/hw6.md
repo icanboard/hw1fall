@@ -23,9 +23,23 @@ I had some experience working with Linq and the database connection after doing 
 2. The first thing I did after that was add the database. The instructions I kept seeing on the interent said to restore the database
 but I couldn't find a restore database option anywhere. After struggling with that for a while, I searched for another
 option and came across an sql restore option. It also showed the restore database option that I couldn't get to work, so I thought
-the other option must work. This was directly from [Mircrosoft](https://msdn.microsoft.com/en-us/library/mt710790.aspx)
+the other option must work. This is directly from [Mircrosoft](https://msdn.microsoft.com/en-us/library/mt710790.aspx)
 so I thought I would give it a try. It went like this: create a new query, run a query to restore the filelist only from the 
 .bak file, and then use the logical name from that query to actually restore the database. It worked!
+	
+	```sql
+	RESTORE FILELISTONLY
+	FROM DISK = 'C:\ ...'
+	GO
+	```
+	
+	```sql
+	RESTORE DATABASE AdventureWorks
+	FROM DISK = 'C:\ ...'
+	WITH MOVE 'AdventureWorks' TO 'c:\ ... \adventureworks.mdf',
+	MOVE 'AdventureWorks_log' TO 'c:\ ... \adventureworks.ldf'
+	```
+	
 
 3. The next step was to add the model from the database. This was fairly simple as all I had to do was add a model from database
 by right clicking on the model folder and add a class. This brought up a window where I selected Data under Visual C# and
