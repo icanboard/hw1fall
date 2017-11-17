@@ -75,7 +75,8 @@ don't want to break things or refactor the methods.
 	I can use the same view, Index, to display the subcategories. I know this reloads the whole page through a GET request, 
 	but I couldn't figure out how to access the data when I did it. I think I could have querried the categories on the 
 	controller and then returned the subcategories in arrays. My largest problem was getting Linq and razor to play nice with javascript.
-	```html
+	
+	```c#
 	 @foreach (var item in Model.ToList())
 	//iterate over the product categories and create links
 	{
@@ -120,7 +121,7 @@ the products on the controller using this Linq command:
 	of results to get the list to display the results you want. Again, I thought about it, but tested every subcategory and they 
 	all fit on one page so I skipped that idea.
 	
-	```html
+	```c#
 	@model IEnumerable<Homework6.Models.Product>
 	
 	@foreach (var item in Model) // iterate over all products
@@ -135,7 +136,7 @@ the products on the controller using this Linq command:
 8. The link from the Products page sent a GET request to the Product page. So that was what I created next. Again, I used
 the 'id' field appended at the end of the URL. I querried Products to find the product I wanted and returned that to the
 Product page.
-	```C#
+	```c#
 	var product = db.Products.Find(id);
 	
 	return View(product);
@@ -151,7 +152,8 @@ much trouble with Linq and skipped it at least for now. I was able to display al
 struggled with was displaying (or not displaying) information if it was null or an empty string. I tried multiple variations of 
 checks, but couldn't get them to work, so for now, if the string is empty or null, it is still displayed. That met the requirements
 for the first feature: find a product and display it.
-	```html
+
+	```c#
 	@model Homework6.Models.Product 
 	@{//pass in single object not IEnumerable, that was passed in from the controller
     ViewBag.Title = "Product";
@@ -197,7 +199,7 @@ passed it to the view. The code looks simple, but it took me a while to figure i
 	which showed me how to render an image from byte data. It worked perfectly. All I had to do after that was to call the 
 	variable I created in an image tag calling my new image variable as the source.
 	
-	```html
+	```c#
 	@{ 
     var base64 = Convert.ToBase64String(ViewBag.pPhoto);
     var imgSrc = String.Format("data:image/gif;base64,{0}", base64);
@@ -257,7 +259,7 @@ in the table weren't nullable. I addressed this by creating DateTime stamps to p
 	After creating the form, I wanted to add a way to show and hide the form. I have done this in the past so I just added
 	a little javascript to take care of the sytle:display and that was taken care of.
 	
-	```html
+	```javascript
 	function toggleElementVisibilty(elementId)
     {
         var element = document.getElementById(elementId);
