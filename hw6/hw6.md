@@ -112,7 +112,7 @@ don't want to break things or refactor the methods.
 7. Now that I have the ProductSubcategoryID, I need to get the products. I created a new view, Products, to display all of
 products in that subcategory. This time, I passed Products to the view so I could iterate over them. I created a list of
 the products on the controller using this Linq command: 
-	```C#
+	```c#
 	var products = db.ProductSubcategories.Find(id).Products.ToList();
 	```
 	I displayed the product nmae with the price on the Products page. My thought was to order them by price, but never made it that far. I was
