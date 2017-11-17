@@ -38,13 +38,13 @@ of the queries I wanted, such as getting all the categories and subcategories, I
 
 5. I continued with creating a controller. I just added a new empty one. The first thing I did was add the database connection
 using the contextfile. Along with using the contextfile, I had to add a using statement at the bop.
-	```C#
+	```c#
 	using Homework6.Models;
 	---
 	private AdventureWorksContext db = new AdventureWorksContext();
 	```
 	I adjusted the Index to get the categories using this code: 
-	```C#
+	```c#
 	 // get all the productcategories (4 of them)
 	var categories = db.ProductCategories;
 	
@@ -71,13 +71,13 @@ don't want to break things or refactor the methods.
 	```
 	
 	In order to access the data from the database on the view, I had to add this statement:
-	```C#
+	```c#
 	@model IEnumerable<Homework6.Models.ProductCategory>
 	```
 	Which returned an IEnumerable of the ProductCategory objects. I also had to add a nullable parameter to Index to accept
 	the id. If id wasn't null, it would add it to the ViewBag. When Index was displayed, it would check the ViewBag for id
 	and if it was there, it would display the subcategories using another foreach loop.
-	```C#
+	```c#
 	@if (ViewBag.catID != null)
     // this will be null on initial load
     {
