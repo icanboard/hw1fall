@@ -1,0 +1,66 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+<div class="row">
+    <div class="col-md-12 text-center">
+        <h2>Search Giphy Gifs</h2>
+
+        <form><!--action="/Products/Product/"-->
+            <input type="checkbox" id="topResult" name="topResult" value="&limit=1">Top Result Only<br />
+            <input type="text" id="searchTerms" name="searchTerms" size="12" />
+            <button type="button" onclick="getSearchResults();">Search</button>
+        </form>
+    </div>
+    <div id="output" class="row col-md-12"></div>
+</div>
+
+<script>
+    function getSearchResults()
+    {
+        var searchTerms = document.getElementById('searchTerms').value.trim();
+        var output = document.getElementById('output');
+
+        if (searchTerms != null)
+        {
+            var topResult = null;
+            var rating = null;
+            var element = null;
+            var termString = searchTerms.split(" ").join('%20'); //change spaces to %20 as Giphy does on their site
+            console.log(termString);
+
+            element = document.getElementById('topResult');
+            if (element.checked)
+            {
+                topResult = element.value;
+            }
+            else
+            {
+                topResult = "";
+            }
+
+            element = document.getElementsByName('rating');
+
+
+            var requestURL = "http" + "://api.giphy.com/v1/gifs/search?q=" + termString + topResult + "&api_key=@ViewBag.apiKey";
+            console.log(requestURL);   
+
+            $('#output').html(null); // Clear the html before appending new results
+
+            $.ajax({
+                url: requestURL, // URL 
+                method: 'GET', // Method Type
+                dataType: 'json', // Requested Response
+                success: function (returnData) { //On Success, Return Images
+                    returnData.data.forEach(function (item) {
+                        $('#output').append(`<div class="col-md-4 imgClass"><img src="${item.images.fixed_height.url}" class="col-md -4"></div>`);
+                    })
+                }
+            })
+        }
+    }
+
+</script>
