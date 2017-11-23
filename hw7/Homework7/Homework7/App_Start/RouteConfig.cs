@@ -18,6 +18,13 @@ namespace Homework7
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+            // Custom Route for my javascript to use to call the Search Controller
+            routes.MapRoute(
+                name: "Search",
+                url: "Search/",
+                defaults: new { controller = "GiphyImage", action = "Index" }
+            );
         }
     }
 }

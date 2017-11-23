@@ -9,14 +9,10 @@ namespace Homework7.Controllers
 {
     public class GiphyImageController : Controller
     {
-        // GET: GiphyImage
+        // GET: /GiphyImage
+        // GET: /GiphyImage/Index
         public ActionResult Index()
         {
-            string apiKey = System.Web.Configuration.WebConfigurationManager.AppSettings["GiphyAPIKey"];
-            Debug.WriteLine("API key = " + apiKey);
-
-            ViewBag.apiKey = apiKey; // allow Index to access apiKey
-
             return View();
         }
     }
