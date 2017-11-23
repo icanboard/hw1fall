@@ -10,12 +10,12 @@ For this homework, I was tasked with creating a website the interacted with Giph
 to enter a search term and send a request to Giphy to get the results and display them on my site. This had to be
 an asynchronous call using ajax. 
 
+	[Youtube Demo of my site in action](https://youtu.be/7-mm6JBx5Fs)
+
 	![Empty Form](https://jthatfield15.github.io/cs460/hw7/1.JPG) 
 	
 	![Search Complete](https://jthatfield15.github.io/cs460/hw7/2.JPG) 
 	
-	[Youtube Demo of my site in action](https://youtu.be/7-mm6JBx5Fs)
-
 I started the project by creating an empty MVC project. I removed the nav bar and footer from the Shared/_Layout.cshtml
 per the instructions as well. I then added a form to my Index to allow me to get a search term from the user.
 The next thing I had to do was go to the Giphy site for developers and register to get an API key. After getting the 
