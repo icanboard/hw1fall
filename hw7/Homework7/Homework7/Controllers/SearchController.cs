@@ -42,8 +42,10 @@ namespace Homework7.Controllers
                 topResult = "&limit=18";
             }
 
+            var ratingString = "&rating=" + rating;
+
             // build the requestURL
-            var requestURL = "http://api.giphy.com/v1/gifs/search?q=" + termString + topResult + rating + "&api_key=" + apiKey;
+            var requestURL = "http://api.giphy.com/v1/gifs/search?q=" + termString + topResult + ratingString + "&api_key=" + apiKey;
             Debug.WriteLine("requestURL = " + requestURL);
 
             // build a WebRequest

@@ -21,8 +21,8 @@
             topResult = "";
         }
 
-        //element = document.getElementsByName('rating').value;
-        rating = "&rating=" + $("#rating").val();;
+        // get the rating value
+        rating = $("#rating").val();
 
         // Clear the html before appending new results
         $('#output').html(null); 
