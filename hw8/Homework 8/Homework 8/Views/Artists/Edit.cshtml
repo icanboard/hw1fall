@@ -1,0 +1,25 @@
+﻿@model Homework_8.Models.ARTIST
+@section Javascript
+{   <!--Includes the javascript. Still need to list the source below-->
+    <script type="text/javascript" src="@Url.Content("/Scripts/LocalJS.js")"></script>
+}
+@{
+    ViewBag.Title = "Edit";
+
+}
+
+<h2>Edit</h2>
+
+<form method="POST" onsubmit="return validateForm();">
+    <display for="Artist Name">Artist's Name</display>
+    <input type="text" name="artistName" id="artistName" title="Artist Name" value="@(ViewBag.aName == null ? "" : ViewBag.aName)" maxlength="50"/>
+    <br /><br />
+    <dispay for="Birth City">Birth City</dispay>
+    <input type="text" name="birthCity" id="birthCity" title="Birth City" value="@(ViewBag.aCity == null ? "" : ViewBag.aCity)"/>
+    <br /><br />
+    <display for="Birth Date">Birth Date</display>
+    <input type="date" name="birthDate" id="birthDate" title="Birth Date" value="@(ViewBag.aDOB == null ? "" : ViewBag.aDOB)"/>
+    <br /><br />
+    <input type="submit" value="Update" />
+</form>
+

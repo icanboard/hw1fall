@@ -1,8 +1,22 @@
-﻿
+﻿@model IEnumerable<Homework_8.Models.GENRE>
+@section Javascript
+{   <!--Includes the javascript. Still need to list the source below-->
+    <script type="text/javascript" src="@Url.Content("/Scripts/LocalJS.js")"></script>
+}
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>HOME</h2>
+<h2>Welcome</h2>
 
-<h3>Welcome to the artists' page.</h3>
+<h3>This is the repository of artists and their works.</h3>
+<br />
+<h4>Please donate to your local museum or library.</h4>
+<br />
+
+@foreach (var item in Model.ToList())
+{
+    <button onclick="makeAjaxCall('@item.Genre1');">@item.Genre1</button>
+}
+<br /><br />
+<div id="output"></div>

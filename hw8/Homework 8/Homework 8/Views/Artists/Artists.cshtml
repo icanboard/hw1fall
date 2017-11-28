@@ -7,5 +7,10 @@
 
 @foreach (var item in Model.ToList())
 {
-    <h4>@Html.ValueForModel(item.ArtistName + " was born on " + item.BirthDate + " in " + item.BirthCity)</h4>
+    <h4>@Html.ValueForModel(item.ArtistName) 
+    @Html.ActionLink("Details", "/Details/" + item.AID)
+    @Html.ActionLink("Edit", "/Edit/" + item.AID)
+    @Html.ActionLink("Delete", "/Delete/" + item.AID)</h4>
 }
+
+<h3>@Html.ActionLink("Add an Artist", "Create")</h3>

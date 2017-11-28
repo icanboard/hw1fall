@@ -1,0 +1,22 @@
+﻿@section Javascript
+{   <!--Includes the javascript. Still need to list the source below-->
+    <script type="text/javascript" src="@Url.Content("/Scripts/LocalJS.js")"></script>
+}
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+<form method="POST" onsubmit="return validateForm();">
+    <display for="Artist Name">Artist's Name</display>
+    <input type="text" name="artistName" id="artistname" title="Artist Name" />
+    <br /><br />
+    <dispay for="Birth City">Birth City</dispay>
+    <input type="text" name="birthCity" id="birthCity" title="Birth City" />
+    <br /><br />
+    <display for="Birth Date">Birth Date</display>
+    <input type="date" name="birthDate" id="birthDate" title="Birth Date" />
+    <br /><br />
+    <input type="submit" value="Submit"/>
+</form>

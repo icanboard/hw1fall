@@ -1,6 +1,7 @@
 ﻿using Homework_8.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -12,38 +13,34 @@ namespace Homework_8.Controllers
         private ArtistsContext db = new ArtistsContext();
 
         // GET: Artists
+        // GET: Artists/Index
         public ActionResult Index()
         {
-            return View();
+            var genres = db.GENRES;
+            return View(genres);
         }
 
-        // GET: Artists
+        // GET: Artists/Artists
         public ActionResult Artists()
         {
             var artists = db.ARTISTS;
             return View(artists);
         }
 
-        // GET: Artists
+        // GET: Artists/Artworks
         public ActionResult Artworks()
         {
             var artworks = db.ARTWORKS;
             return View(artworks);
         }
 
-        // GET: Artists
+        // GET: Artists/Classifications
         public ActionResult Classifications()
         {
             var classifications = db.CLASSIFICATIONS;
             return View(classifications);
         }
-
-        // GET: Artists/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
-
+        
         // GET: Artists/Create
         public ActionResult Create()
         {
@@ -56,9 +53,16 @@ namespace Homework_8.Controllers
         {
             try
             {
-                // TODO: Add insert logic here
+                ARTIST artist = db.ARTISTS.Create();
 
-                return RedirectToAction("Index");
+                artist.ArtistName = collection["artistName"];
+                artist.BirthCity = collection["birthCity"];
+                artist.BirthDate = collection["birthDate"];
+
+                db.ARTISTS.Add(artist);
+                db.SaveChanges();
+
+                return RedirectToAction("Artists");
             }
             catch
             {
@@ -66,9 +70,20 @@ namespace Homework_8.Controllers
             }
         }
 
+        // GET: Artists/Details/5
+        public ActionResult Details(int id)
+        {
+            var artist = db.ARTISTS.Where(a => a.AID == id).FirstOrDefault();
+            return View(artist);
+        }
+        
+
         // GET: Artists/Edit/5
         public ActionResult Edit(int id)
         {
+            ViewBag.aName = db.ARTISTS.Where(a => a.AID == id).FirstOrDefault().ArtistName;
+            ViewBag.aCity = db.ARTISTS.Where(a => a.AID == id).FirstOrDefault().BirthCity;
+            ViewBag.aDOB = db.ARTISTS.Where(a => a.AID == id).FirstOrDefault().BirthDate;
             return View();
         }
 
@@ -78,9 +93,15 @@ namespace Homework_8.Controllers
         {
             try
             {
-                // TODO: Add update logic here
+                var artistToUpdate = db.ARTISTS.Find(id);
 
-                return RedirectToAction("Index");
+                artistToUpdate.ArtistName = collection["artistName"];
+                artistToUpdate.BirthCity = collection["birthCity"];
+                artistToUpdate.BirthDate = collection["birthDate"];
+
+                db.SaveChanges();
+
+                return RedirectToAction("Details/" + id);
             }
             catch
             {
@@ -91,7 +112,13 @@ namespace Homework_8.Controllers
         // GET: Artists/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+            var artist = db.ARTISTS.Where(a => a.AID == id).FirstOrDefault();
+
+            ViewBag.aName = db.ARTISTS.Where(a => a.AID == id).FirstOrDefault().ArtistName;
+            ViewBag.aCity = db.ARTISTS.Where(a => a.AID == id).FirstOrDefault().BirthCity;
+            ViewBag.aDOB = db.ARTISTS.Where(a => a.AID == id).FirstOrDefault().BirthDate;
+            
+            return View(artist); 
         }
 
         // POST: Artists/Delete/5
@@ -100,14 +127,36 @@ namespace Homework_8.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
+                var artist = db.ARTISTS.Find(id);
 
-                return RedirectToAction("Index");
+                db.ARTISTS.Remove(artist);
+                db.SaveChanges();
+                
+                return RedirectToAction("Artists");
             }
             catch
             {
                 return View();
             }
+        }
+
+        //https://stackoverflow.com/questions/25304610/how-to-get-a-list-from-mvc-controller-to-view-using-jquery-ajax
+        // POST: Artists/Genre
+        [HttpPost]
+        public JsonResult Genre(string genre)
+        {
+            var artwork = db.GENRES.Find(genre).CLASSIFICATIONS.ToList().OrderBy(t => t.ARTWORK.Title).Select(a => new { aw = a.AWID, awa = a.ARTWORK.AID }).ToList();
+            string[] artworkCreator = new string[artwork.Count()];
+            for (int i = 0; i < artworkCreator.Length; ++i)
+            {
+                artworkCreator[i] = $"<ul>{db.ARTWORKS.Find(artwork[i].aw).Title} by {db.ARTISTS.Find(artwork[i].awa).ArtistName}</ul>";
+            }
+            var data = new
+            {
+                arr = artworkCreator
+            };
+            
+            return Json(data, JsonRequestBehavior.AllowGet);
         }
     }
 }

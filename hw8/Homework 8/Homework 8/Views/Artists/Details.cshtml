@@ -1,0 +1,13 @@
+﻿@model Homework_8.Models.ARTIST
+@{
+    ViewBag.Title = "Details";
+    ViewBag.aName = Html.DisplayFor(a => a.ArtistName);
+    ViewBag.aDOB = Html.DisplayFor(a => a.BirthDate);
+    ViewBag.aCity = Html.DisplayFor(a => a.BirthCity);
+}
+
+<h2>Details for Artist</h2>
+
+<h4>Name: @ViewBag.aName</h4>
+<h4>Birth Date: @ViewBag.aDOB</h4>
+<h4>Birth City: @ViewBag.aCity</h4>
