@@ -1,4 +1,5 @@
-﻿function validateForm() {
+﻿function validateForm()
+{
     // Today's Date
     var today = new Date();
     var dd = today.getDate();
@@ -8,9 +9,7 @@
 
     var DOB = document.getElementById("birthDate").value;
     DOB = DOB.split("-");
-    //DOB[0] = Year
-    //DOB[1] = Month
-    //DOB[2] = Day
+    //DOB[0] = Year //DOB[1] = Month //DOB[2] = Day
 
     // Confirm birthdate is not in the future
     if (DOB[0] > yyyy)

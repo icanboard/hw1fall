@@ -40,10 +40,10 @@ CREATE TABLE dbo.CLASSIFICATIONS (
 );
 
 INSERT INTO dbo.ARTISTS (ArtistName, BirthDate, BirthCity) VALUES
-('M.C. Escher', 'June 17, 1989', 'Leeuwarden, Netherlands'),
-('Leonardo Da Vinci', 'May 2, 1519', 'Vinci, Italy'),
-('Hatip Mehmed Efendi', 'November 18, 1680', 'Unknown'),
-('Salvador Dali', 'May 11, 1904', 'Figueres, Spain')
+('M.C. Escher', '1989-06-17', 'Leeuwarden, Netherlands'),
+('Leonardo Da Vinci', '1519-05-02', 'Vinci, Italy'),
+('Hatip Mehmed Efendi', '1680-11-18', 'Unknown'),
+('Salvador Dali', '1904-05-11', 'Figueres, Spain')
 ;
 
 INSERT INTO dbo.GENRES (Genre) VALUES
