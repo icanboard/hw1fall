@@ -18,6 +18,7 @@ These link to my homework pages:
   * [Home Work 6](https://jthatfield15.github.io/cs460/hw6/hw6)
   * [Home Work 7](https://jthatfield15.github.io/cs460/hw7/hw7)
   * [Home Work 8](https://jthatfield15.github.io/cs460/hw8/hw8)
+  * [Home Work 9](https://jthatfield15.github.io/cs460/hw9/hw9)
 
 ---------------
 [My CS460 Homepage (html)](https://jthatfield15.github.io/cs460/)
