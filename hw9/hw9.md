@@ -6,6 +6,8 @@ Homework 9 - Deploying to the cloud with Azure
 
 [Jake's GitHub.io Homepage](https://jthatfield15.github.io/cs460/)
 
+[Jake's Azure site - Homework 8 deployed for Homework 9](http://hw8.azurewebsites.net/)
+
 This assignment was all about deploying my previous project, homework 8, to the cloud using Azure as the host.
 
 The first thing I had to do was create an Azure account with Microsoft. I have done this in the past, so I had to
